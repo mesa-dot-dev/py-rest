@@ -1,11 +1,13 @@
 from http import HTTPStatus
-from typing import Any
+from typing import Any, cast
 from urllib.parse import quote
 
 import httpx
 
-from ... import errors
 from ...client import AuthenticatedClient, Client
+from ...types import Response, UNSET
+from ... import errors
+
 from ...models.post_by_org_by_repo_webhooks_body import PostByOrgByRepoWebhooksBody
 from ...models.post_by_org_by_repo_webhooks_response_201 import PostByOrgByRepoWebhooksResponse201
 from ...models.post_by_org_by_repo_webhooks_response_400 import PostByOrgByRepoWebhooksResponse400
@@ -15,27 +17,31 @@ from ...models.post_by_org_by_repo_webhooks_response_404 import PostByOrgByRepoW
 from ...models.post_by_org_by_repo_webhooks_response_406 import PostByOrgByRepoWebhooksResponse406
 from ...models.post_by_org_by_repo_webhooks_response_409 import PostByOrgByRepoWebhooksResponse409
 from ...models.post_by_org_by_repo_webhooks_response_500 import PostByOrgByRepoWebhooksResponse500
-from ...types import UNSET, Response, Unset
+from typing import cast
+
 
 
 def _get_kwargs(
     org: str,
     repo: str,
     *,
-    body: PostByOrgByRepoWebhooksBody | Unset = UNSET,
+    body: PostByOrgByRepoWebhooksBody,
+
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
+
+    
+
+    
+
     _kwargs: dict[str, Any] = {
         "method": "post",
-        "url": "/{org}/{repo}/webhooks".format(
-            org=quote(str(org), safe=""),
-            repo=quote(str(repo), safe=""),
-        ),
+        "url": "/{org}/{repo}/webhooks".format(org=quote(str(org), safe=""),repo=quote(str(repo), safe=""),),
     }
 
-    if not isinstance(body, Unset):
-        _kwargs["json"] = body.to_dict()
+    _kwargs["json"] = body.to_dict()
+
 
     headers["Content-Type"] = "application/json"
 
@@ -43,56 +49,61 @@ def _get_kwargs(
     return _kwargs
 
 
-def _parse_response(
-    *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> (
-    PostByOrgByRepoWebhooksResponse201
-    | PostByOrgByRepoWebhooksResponse400
-    | PostByOrgByRepoWebhooksResponse401
-    | PostByOrgByRepoWebhooksResponse403
-    | PostByOrgByRepoWebhooksResponse404
-    | PostByOrgByRepoWebhooksResponse406
-    | PostByOrgByRepoWebhooksResponse409
-    | PostByOrgByRepoWebhooksResponse500
-    | None
-):
+
+def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> PostByOrgByRepoWebhooksResponse201 | PostByOrgByRepoWebhooksResponse400 | PostByOrgByRepoWebhooksResponse401 | PostByOrgByRepoWebhooksResponse403 | PostByOrgByRepoWebhooksResponse404 | PostByOrgByRepoWebhooksResponse406 | PostByOrgByRepoWebhooksResponse409 | PostByOrgByRepoWebhooksResponse500 | None:
     if response.status_code == 201:
         response_201 = PostByOrgByRepoWebhooksResponse201.from_dict(response.json())
+
+
 
         return response_201
 
     if response.status_code == 400:
         response_400 = PostByOrgByRepoWebhooksResponse400.from_dict(response.json())
 
+
+
         return response_400
 
     if response.status_code == 401:
         response_401 = PostByOrgByRepoWebhooksResponse401.from_dict(response.json())
+
+
 
         return response_401
 
     if response.status_code == 403:
         response_403 = PostByOrgByRepoWebhooksResponse403.from_dict(response.json())
 
+
+
         return response_403
 
     if response.status_code == 404:
         response_404 = PostByOrgByRepoWebhooksResponse404.from_dict(response.json())
+
+
 
         return response_404
 
     if response.status_code == 406:
         response_406 = PostByOrgByRepoWebhooksResponse406.from_dict(response.json())
 
+
+
         return response_406
 
     if response.status_code == 409:
         response_409 = PostByOrgByRepoWebhooksResponse409.from_dict(response.json())
 
+
+
         return response_409
 
     if response.status_code == 500:
         response_500 = PostByOrgByRepoWebhooksResponse500.from_dict(response.json())
+
+
 
         return response_500
 
@@ -102,18 +113,7 @@ def _parse_response(
         return None
 
 
-def _build_response(
-    *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[
-    PostByOrgByRepoWebhooksResponse201
-    | PostByOrgByRepoWebhooksResponse400
-    | PostByOrgByRepoWebhooksResponse401
-    | PostByOrgByRepoWebhooksResponse403
-    | PostByOrgByRepoWebhooksResponse404
-    | PostByOrgByRepoWebhooksResponse406
-    | PostByOrgByRepoWebhooksResponse409
-    | PostByOrgByRepoWebhooksResponse500
-]:
+def _build_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> Response[PostByOrgByRepoWebhooksResponse201 | PostByOrgByRepoWebhooksResponse400 | PostByOrgByRepoWebhooksResponse401 | PostByOrgByRepoWebhooksResponse403 | PostByOrgByRepoWebhooksResponse404 | PostByOrgByRepoWebhooksResponse406 | PostByOrgByRepoWebhooksResponse409 | PostByOrgByRepoWebhooksResponse500]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -127,25 +127,17 @@ def sync_detailed(
     repo: str,
     *,
     client: AuthenticatedClient | Client,
-    body: PostByOrgByRepoWebhooksBody | Unset = UNSET,
-) -> Response[
-    PostByOrgByRepoWebhooksResponse201
-    | PostByOrgByRepoWebhooksResponse400
-    | PostByOrgByRepoWebhooksResponse401
-    | PostByOrgByRepoWebhooksResponse403
-    | PostByOrgByRepoWebhooksResponse404
-    | PostByOrgByRepoWebhooksResponse406
-    | PostByOrgByRepoWebhooksResponse409
-    | PostByOrgByRepoWebhooksResponse500
-]:
-    """Create webhook
+    body: PostByOrgByRepoWebhooksBody,
+
+) -> Response[PostByOrgByRepoWebhooksResponse201 | PostByOrgByRepoWebhooksResponse400 | PostByOrgByRepoWebhooksResponse401 | PostByOrgByRepoWebhooksResponse403 | PostByOrgByRepoWebhooksResponse404 | PostByOrgByRepoWebhooksResponse406 | PostByOrgByRepoWebhooksResponse409 | PostByOrgByRepoWebhooksResponse500]:
+    """ Create webhook
 
      Create a webhook for a repository
 
     Args:
         org (str):
         repo (str):
-        body (PostByOrgByRepoWebhooksBody | Unset):
+        body (PostByOrgByRepoWebhooksBody):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -153,12 +145,14 @@ def sync_detailed(
 
     Returns:
         Response[PostByOrgByRepoWebhooksResponse201 | PostByOrgByRepoWebhooksResponse400 | PostByOrgByRepoWebhooksResponse401 | PostByOrgByRepoWebhooksResponse403 | PostByOrgByRepoWebhooksResponse404 | PostByOrgByRepoWebhooksResponse406 | PostByOrgByRepoWebhooksResponse409 | PostByOrgByRepoWebhooksResponse500]
-    """
+     """
+
 
     kwargs = _get_kwargs(
         org=org,
-        repo=repo,
-        body=body,
+repo=repo,
+body=body,
+
     )
 
     response = client.get_httpx_client().request(
@@ -167,32 +161,22 @@ def sync_detailed(
 
     return _build_response(client=client, response=response)
 
-
 def sync(
     org: str,
     repo: str,
     *,
     client: AuthenticatedClient | Client,
-    body: PostByOrgByRepoWebhooksBody | Unset = UNSET,
-) -> (
-    PostByOrgByRepoWebhooksResponse201
-    | PostByOrgByRepoWebhooksResponse400
-    | PostByOrgByRepoWebhooksResponse401
-    | PostByOrgByRepoWebhooksResponse403
-    | PostByOrgByRepoWebhooksResponse404
-    | PostByOrgByRepoWebhooksResponse406
-    | PostByOrgByRepoWebhooksResponse409
-    | PostByOrgByRepoWebhooksResponse500
-    | None
-):
-    """Create webhook
+    body: PostByOrgByRepoWebhooksBody,
+
+) -> PostByOrgByRepoWebhooksResponse201 | PostByOrgByRepoWebhooksResponse400 | PostByOrgByRepoWebhooksResponse401 | PostByOrgByRepoWebhooksResponse403 | PostByOrgByRepoWebhooksResponse404 | PostByOrgByRepoWebhooksResponse406 | PostByOrgByRepoWebhooksResponse409 | PostByOrgByRepoWebhooksResponse500 | None:
+    """ Create webhook
 
      Create a webhook for a repository
 
     Args:
         org (str):
         repo (str):
-        body (PostByOrgByRepoWebhooksBody | Unset):
+        body (PostByOrgByRepoWebhooksBody):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -200,40 +184,33 @@ def sync(
 
     Returns:
         PostByOrgByRepoWebhooksResponse201 | PostByOrgByRepoWebhooksResponse400 | PostByOrgByRepoWebhooksResponse401 | PostByOrgByRepoWebhooksResponse403 | PostByOrgByRepoWebhooksResponse404 | PostByOrgByRepoWebhooksResponse406 | PostByOrgByRepoWebhooksResponse409 | PostByOrgByRepoWebhooksResponse500
-    """
+     """
+
 
     return sync_detailed(
         org=org,
-        repo=repo,
-        client=client,
-        body=body,
-    ).parsed
+repo=repo,
+client=client,
+body=body,
 
+    ).parsed
 
 async def asyncio_detailed(
     org: str,
     repo: str,
     *,
     client: AuthenticatedClient | Client,
-    body: PostByOrgByRepoWebhooksBody | Unset = UNSET,
-) -> Response[
-    PostByOrgByRepoWebhooksResponse201
-    | PostByOrgByRepoWebhooksResponse400
-    | PostByOrgByRepoWebhooksResponse401
-    | PostByOrgByRepoWebhooksResponse403
-    | PostByOrgByRepoWebhooksResponse404
-    | PostByOrgByRepoWebhooksResponse406
-    | PostByOrgByRepoWebhooksResponse409
-    | PostByOrgByRepoWebhooksResponse500
-]:
-    """Create webhook
+    body: PostByOrgByRepoWebhooksBody,
+
+) -> Response[PostByOrgByRepoWebhooksResponse201 | PostByOrgByRepoWebhooksResponse400 | PostByOrgByRepoWebhooksResponse401 | PostByOrgByRepoWebhooksResponse403 | PostByOrgByRepoWebhooksResponse404 | PostByOrgByRepoWebhooksResponse406 | PostByOrgByRepoWebhooksResponse409 | PostByOrgByRepoWebhooksResponse500]:
+    """ Create webhook
 
      Create a webhook for a repository
 
     Args:
         org (str):
         repo (str):
-        body (PostByOrgByRepoWebhooksBody | Unset):
+        body (PostByOrgByRepoWebhooksBody):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -241,44 +218,38 @@ async def asyncio_detailed(
 
     Returns:
         Response[PostByOrgByRepoWebhooksResponse201 | PostByOrgByRepoWebhooksResponse400 | PostByOrgByRepoWebhooksResponse401 | PostByOrgByRepoWebhooksResponse403 | PostByOrgByRepoWebhooksResponse404 | PostByOrgByRepoWebhooksResponse406 | PostByOrgByRepoWebhooksResponse409 | PostByOrgByRepoWebhooksResponse500]
-    """
+     """
+
 
     kwargs = _get_kwargs(
         org=org,
-        repo=repo,
-        body=body,
+repo=repo,
+body=body,
+
     )
 
-    response = await client.get_async_httpx_client().request(**kwargs)
+    response = await client.get_async_httpx_client().request(
+        **kwargs
+    )
 
     return _build_response(client=client, response=response)
-
 
 async def asyncio(
     org: str,
     repo: str,
     *,
     client: AuthenticatedClient | Client,
-    body: PostByOrgByRepoWebhooksBody | Unset = UNSET,
-) -> (
-    PostByOrgByRepoWebhooksResponse201
-    | PostByOrgByRepoWebhooksResponse400
-    | PostByOrgByRepoWebhooksResponse401
-    | PostByOrgByRepoWebhooksResponse403
-    | PostByOrgByRepoWebhooksResponse404
-    | PostByOrgByRepoWebhooksResponse406
-    | PostByOrgByRepoWebhooksResponse409
-    | PostByOrgByRepoWebhooksResponse500
-    | None
-):
-    """Create webhook
+    body: PostByOrgByRepoWebhooksBody,
+
+) -> PostByOrgByRepoWebhooksResponse201 | PostByOrgByRepoWebhooksResponse400 | PostByOrgByRepoWebhooksResponse401 | PostByOrgByRepoWebhooksResponse403 | PostByOrgByRepoWebhooksResponse404 | PostByOrgByRepoWebhooksResponse406 | PostByOrgByRepoWebhooksResponse409 | PostByOrgByRepoWebhooksResponse500 | None:
+    """ Create webhook
 
      Create a webhook for a repository
 
     Args:
         org (str):
         repo (str):
-        body (PostByOrgByRepoWebhooksBody | Unset):
+        body (PostByOrgByRepoWebhooksBody):
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -286,13 +257,13 @@ async def asyncio(
 
     Returns:
         PostByOrgByRepoWebhooksResponse201 | PostByOrgByRepoWebhooksResponse400 | PostByOrgByRepoWebhooksResponse401 | PostByOrgByRepoWebhooksResponse403 | PostByOrgByRepoWebhooksResponse404 | PostByOrgByRepoWebhooksResponse406 | PostByOrgByRepoWebhooksResponse409 | PostByOrgByRepoWebhooksResponse500
-    """
+     """
 
-    return (
-        await asyncio_detailed(
-            org=org,
-            repo=repo,
-            client=client,
-            body=body,
-        )
-    ).parsed
+
+    return (await asyncio_detailed(
+        org=org,
+repo=repo,
+client=client,
+body=body,
+
+    )).parsed

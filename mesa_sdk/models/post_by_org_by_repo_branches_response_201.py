@@ -1,27 +1,40 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import Any, TypeVar
+from typing import Any, TypeVar, BinaryIO, TextIO, TYPE_CHECKING, Generator
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..types import UNSET, Unset
+
+
+
+
+
+
+
 T = TypeVar("T", bound="PostByOrgByRepoBranchesResponse201")
+
 
 
 @_attrs_define
 class PostByOrgByRepoBranchesResponse201:
-    """
-    Attributes:
-        name (str):
-        head_oid (str):
-        is_default (bool):
-    """
+    """ 
+        Attributes:
+            name (str):
+            head_oid (str):
+            is_default (bool):
+     """
 
     name: str
     head_oid: str
     is_default: bool
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
+
+
+
+
 
     def to_dict(self) -> dict[str, Any]:
         name = self.name
@@ -30,17 +43,18 @@ class PostByOrgByRepoBranchesResponse201:
 
         is_default = self.is_default
 
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "name": name,
-                "head_oid": head_oid,
-                "is_default": is_default,
-            }
-        )
+        field_dict.update({
+            "name": name,
+            "head_oid": head_oid,
+            "is_default": is_default,
+        })
 
         return field_dict
+
+
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
@@ -56,6 +70,7 @@ class PostByOrgByRepoBranchesResponse201:
             head_oid=head_oid,
             is_default=is_default,
         )
+
 
         post_by_org_by_repo_branches_response_201.additional_properties = d
         return post_by_org_by_repo_branches_response_201

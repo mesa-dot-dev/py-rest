@@ -1,30 +1,37 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import Any, TypeVar, cast
+from typing import Any, TypeVar, BinaryIO, TextIO, TYPE_CHECKING, Generator
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-from ..models.get_by_org_by_repo_webhooks_response_200_webhooks_item_events_item import (
-    GetByOrgByRepoWebhooksResponse200WebhooksItemEventsItem,
-)
+from ..types import UNSET, Unset
+
+from ..models.get_by_org_by_repo_webhooks_response_200_webhooks_item_events_item import GetByOrgByRepoWebhooksResponse200WebhooksItemEventsItem
+from typing import cast
+
+
+
+
+
 
 T = TypeVar("T", bound="GetByOrgByRepoWebhooksResponse200WebhooksItem")
 
 
+
 @_attrs_define
 class GetByOrgByRepoWebhooksResponse200WebhooksItem:
-    """
-    Attributes:
-        id (str):
-        url (str):
-        events (list[GetByOrgByRepoWebhooksResponse200WebhooksItemEventsItem]):
-        branches (list[str] | None):
-        globs (list[str] | None):
-        created_at (str):
-        updated_at (str):
-    """
+    """ 
+        Attributes:
+            id (str):
+            url (str):
+            events (list[GetByOrgByRepoWebhooksResponse200WebhooksItemEventsItem]):
+            branches (list[str] | None):
+            globs (list[str] | None):
+            created_at (str):
+            updated_at (str):
+     """
 
     id: str
     url: str
@@ -34,6 +41,10 @@ class GetByOrgByRepoWebhooksResponse200WebhooksItem:
     created_at: str
     updated_at: str
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
+
+
+
+
 
     def to_dict(self) -> dict[str, Any]:
         id = self.id
@@ -45,9 +56,12 @@ class GetByOrgByRepoWebhooksResponse200WebhooksItem:
             events_item = events_item_data.value
             events.append(events_item)
 
+
+
         branches: list[str] | None
         if isinstance(self.branches, list):
             branches = self.branches
+
 
         else:
             branches = self.branches
@@ -56,6 +70,7 @@ class GetByOrgByRepoWebhooksResponse200WebhooksItem:
         if isinstance(self.globs, list):
             globs = self.globs
 
+
         else:
             globs = self.globs
 
@@ -63,21 +78,22 @@ class GetByOrgByRepoWebhooksResponse200WebhooksItem:
 
         updated_at = self.updated_at
 
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "id": id,
-                "url": url,
-                "events": events,
-                "branches": branches,
-                "globs": globs,
-                "created_at": created_at,
-                "updated_at": updated_at,
-            }
-        )
+        field_dict.update({
+            "id": id,
+            "url": url,
+            "events": events,
+            "branches": branches,
+            "globs": globs,
+            "created_at": created_at,
+            "updated_at": updated_at,
+        })
 
         return field_dict
+
+
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
@@ -88,10 +104,13 @@ class GetByOrgByRepoWebhooksResponse200WebhooksItem:
 
         events = []
         _events = d.pop("events")
-        for events_item_data in _events:
+        for events_item_data in (_events):
             events_item = GetByOrgByRepoWebhooksResponse200WebhooksItemEventsItem(events_item_data)
 
+
+
             events.append(events_item)
+
 
         def _parse_branches(data: object) -> list[str] | None:
             if data is None:
@@ -108,6 +127,7 @@ class GetByOrgByRepoWebhooksResponse200WebhooksItem:
 
         branches = _parse_branches(d.pop("branches"))
 
+
         def _parse_globs(data: object) -> list[str] | None:
             if data is None:
                 return data
@@ -123,6 +143,7 @@ class GetByOrgByRepoWebhooksResponse200WebhooksItem:
 
         globs = _parse_globs(d.pop("globs"))
 
+
         created_at = d.pop("created_at")
 
         updated_at = d.pop("updated_at")
@@ -136,6 +157,7 @@ class GetByOrgByRepoWebhooksResponse200WebhooksItem:
             created_at=created_at,
             updated_at=updated_at,
         )
+
 
         get_by_org_by_repo_webhooks_response_200_webhooks_item.additional_properties = d
         return get_by_org_by_repo_webhooks_response_200_webhooks_item

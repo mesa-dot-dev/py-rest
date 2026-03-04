@@ -1,51 +1,68 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar
+from typing import Any, TypeVar, BinaryIO, TextIO, TYPE_CHECKING, Generator
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..types import UNSET, Unset
+
+from typing import cast
+
 if TYPE_CHECKING:
-    from ..models.delete_by_org_by_repo_response_400_error import DeleteByOrgByRepoResponse400Error
+  from ..models.delete_by_org_by_repo_response_400_error import DeleteByOrgByRepoResponse400Error
+
+
+
 
 
 T = TypeVar("T", bound="DeleteByOrgByRepoResponse400")
 
 
+
 @_attrs_define
 class DeleteByOrgByRepoResponse400:
-    """
-    Attributes:
-        error (DeleteByOrgByRepoResponse400Error):
-    """
+    """ 
+        Attributes:
+            error (DeleteByOrgByRepoResponse400Error):
+     """
 
     error: DeleteByOrgByRepoResponse400Error
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
+
+
+
+
     def to_dict(self) -> dict[str, Any]:
+        from ..models.delete_by_org_by_repo_response_400_error import DeleteByOrgByRepoResponse400Error
         error = self.error.to_dict()
+
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "error": error,
-            }
-        )
+        field_dict.update({
+            "error": error,
+        })
 
         return field_dict
+
+
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         from ..models.delete_by_org_by_repo_response_400_error import DeleteByOrgByRepoResponse400Error
-
         d = dict(src_dict)
         error = DeleteByOrgByRepoResponse400Error.from_dict(d.pop("error"))
+
+
+
 
         delete_by_org_by_repo_response_400 = cls(
             error=error,
         )
+
 
         delete_by_org_by_repo_response_400.additional_properties = d
         return delete_by_org_by_repo_response_400

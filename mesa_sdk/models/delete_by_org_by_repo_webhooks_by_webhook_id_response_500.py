@@ -1,55 +1,68 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar
+from typing import Any, TypeVar, BinaryIO, TextIO, TYPE_CHECKING, Generator
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..types import UNSET, Unset
+
+from typing import cast
+
 if TYPE_CHECKING:
-    from ..models.delete_by_org_by_repo_webhooks_by_webhook_id_response_500_error import (
-        DeleteByOrgByRepoWebhooksByWebhookIdResponse500Error,
-    )
+  from ..models.delete_by_org_by_repo_webhooks_by_webhook_id_response_500_error import DeleteByOrgByRepoWebhooksByWebhookIdResponse500Error
+
+
+
 
 
 T = TypeVar("T", bound="DeleteByOrgByRepoWebhooksByWebhookIdResponse500")
 
 
+
 @_attrs_define
 class DeleteByOrgByRepoWebhooksByWebhookIdResponse500:
-    """
-    Attributes:
-        error (DeleteByOrgByRepoWebhooksByWebhookIdResponse500Error):
-    """
+    """ 
+        Attributes:
+            error (DeleteByOrgByRepoWebhooksByWebhookIdResponse500Error):
+     """
 
     error: DeleteByOrgByRepoWebhooksByWebhookIdResponse500Error
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
+
+
+
+
     def to_dict(self) -> dict[str, Any]:
+        from ..models.delete_by_org_by_repo_webhooks_by_webhook_id_response_500_error import DeleteByOrgByRepoWebhooksByWebhookIdResponse500Error
         error = self.error.to_dict()
+
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "error": error,
-            }
-        )
+        field_dict.update({
+            "error": error,
+        })
 
         return field_dict
 
+
+
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.delete_by_org_by_repo_webhooks_by_webhook_id_response_500_error import (
-            DeleteByOrgByRepoWebhooksByWebhookIdResponse500Error,
-        )
-
+        from ..models.delete_by_org_by_repo_webhooks_by_webhook_id_response_500_error import DeleteByOrgByRepoWebhooksByWebhookIdResponse500Error
         d = dict(src_dict)
         error = DeleteByOrgByRepoWebhooksByWebhookIdResponse500Error.from_dict(d.pop("error"))
+
+
+
 
         delete_by_org_by_repo_webhooks_by_webhook_id_response_500 = cls(
             error=error,
         )
+
 
         delete_by_org_by_repo_webhooks_by_webhook_id_response_500.additional_properties = d
         return delete_by_org_by_repo_webhooks_by_webhook_id_response_500

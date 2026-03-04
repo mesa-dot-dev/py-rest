@@ -1,6 +1,5 @@
 from enum import Enum
 
-
 class PostByOrgApiKeysBodyScopesItem(str, Enum):
     ADMIN = "admin"
     GITREAD = "git:read"

@@ -1,51 +1,68 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar
+from typing import Any, TypeVar, BinaryIO, TextIO, TYPE_CHECKING, Generator
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..types import UNSET, Unset
+
+from typing import cast
+
 if TYPE_CHECKING:
-    from ..models.get_by_org_repos_response_401_error import GetByOrgReposResponse401Error
+  from ..models.get_by_org_repos_response_401_error import GetByOrgReposResponse401Error
+
+
+
 
 
 T = TypeVar("T", bound="GetByOrgReposResponse401")
 
 
+
 @_attrs_define
 class GetByOrgReposResponse401:
-    """
-    Attributes:
-        error (GetByOrgReposResponse401Error):
-    """
+    """ 
+        Attributes:
+            error (GetByOrgReposResponse401Error):
+     """
 
     error: GetByOrgReposResponse401Error
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
+
+
+
+
     def to_dict(self) -> dict[str, Any]:
+        from ..models.get_by_org_repos_response_401_error import GetByOrgReposResponse401Error
         error = self.error.to_dict()
+
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "error": error,
-            }
-        )
+        field_dict.update({
+            "error": error,
+        })
 
         return field_dict
+
+
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         from ..models.get_by_org_repos_response_401_error import GetByOrgReposResponse401Error
-
         d = dict(src_dict)
         error = GetByOrgReposResponse401Error.from_dict(d.pop("error"))
+
+
+
 
         get_by_org_repos_response_401 = cls(
             error=error,
         )
+
 
         get_by_org_repos_response_401.additional_properties = d
         return get_by_org_repos_response_401

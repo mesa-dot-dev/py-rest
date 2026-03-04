@@ -1,37 +1,47 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar
+from typing import Any, TypeVar, BinaryIO, TextIO, TYPE_CHECKING, Generator
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
+from ..types import UNSET, Unset
+from typing import cast
+
 if TYPE_CHECKING:
-    from ..models.delete_by_org_by_repo_branches_by_branch_response_403_error_details import (
-        DeleteByOrgByRepoBranchesByBranchResponse403ErrorDetails,
-    )
+  from ..models.delete_by_org_by_repo_branches_by_branch_response_403_error_details import DeleteByOrgByRepoBranchesByBranchResponse403ErrorDetails
+
+
+
 
 
 T = TypeVar("T", bound="DeleteByOrgByRepoBranchesByBranchResponse403Error")
 
 
+
 @_attrs_define
 class DeleteByOrgByRepoBranchesByBranchResponse403Error:
-    """
-    Attributes:
-        code (str):
-        message (str):
-        details (DeleteByOrgByRepoBranchesByBranchResponse403ErrorDetails | Unset):
-    """
+    """ 
+        Attributes:
+            code (str):
+            message (str):
+            details (DeleteByOrgByRepoBranchesByBranchResponse403ErrorDetails | Unset):
+     """
 
     code: str
     message: str
     details: DeleteByOrgByRepoBranchesByBranchResponse403ErrorDetails | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
+
+
+
+
     def to_dict(self) -> dict[str, Any]:
+        from ..models.delete_by_org_by_repo_branches_by_branch_response_403_error_details import DeleteByOrgByRepoBranchesByBranchResponse403ErrorDetails
         code = self.code
 
         message = self.message
@@ -40,25 +50,23 @@ class DeleteByOrgByRepoBranchesByBranchResponse403Error:
         if not isinstance(self.details, Unset):
             details = self.details.to_dict()
 
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "code": code,
-                "message": message,
-            }
-        )
+        field_dict.update({
+            "code": code,
+            "message": message,
+        })
         if details is not UNSET:
             field_dict["details"] = details
 
         return field_dict
 
+
+
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.delete_by_org_by_repo_branches_by_branch_response_403_error_details import (
-            DeleteByOrgByRepoBranchesByBranchResponse403ErrorDetails,
-        )
-
+        from ..models.delete_by_org_by_repo_branches_by_branch_response_403_error_details import DeleteByOrgByRepoBranchesByBranchResponse403ErrorDetails
         d = dict(src_dict)
         code = d.pop("code")
 
@@ -66,16 +74,20 @@ class DeleteByOrgByRepoBranchesByBranchResponse403Error:
 
         _details = d.pop("details", UNSET)
         details: DeleteByOrgByRepoBranchesByBranchResponse403ErrorDetails | Unset
-        if isinstance(_details, Unset):
+        if isinstance(_details,  Unset):
             details = UNSET
         else:
             details = DeleteByOrgByRepoBranchesByBranchResponse403ErrorDetails.from_dict(_details)
+
+
+
 
         delete_by_org_by_repo_branches_by_branch_response_403_error = cls(
             code=code,
             message=message,
             details=details,
         )
+
 
         delete_by_org_by_repo_branches_by_branch_response_403_error.additional_properties = d
         return delete_by_org_by_repo_branches_by_branch_response_403_error

@@ -1,11 +1,13 @@
 from http import HTTPStatus
-from typing import Any
+from typing import Any, cast
 from urllib.parse import quote
 
 import httpx
 
-from ... import errors
 from ...client import AuthenticatedClient, Client
+from ...types import Response, UNSET
+from ... import errors
+
 from ...models.get_by_org_by_repo_content_response_200_type_0 import GetByOrgByRepoContentResponse200Type0
 from ...models.get_by_org_by_repo_content_response_200_type_1 import GetByOrgByRepoContentResponse200Type1
 from ...models.get_by_org_by_repo_content_response_200_type_2 import GetByOrgByRepoContentResponse200Type2
@@ -16,7 +18,9 @@ from ...models.get_by_org_by_repo_content_response_404 import GetByOrgByRepoCont
 from ...models.get_by_org_by_repo_content_response_406 import GetByOrgByRepoContentResponse406
 from ...models.get_by_org_by_repo_content_response_409 import GetByOrgByRepoContentResponse409
 from ...models.get_by_org_by_repo_content_response_500 import GetByOrgByRepoContentResponse500
-from ...types import UNSET, Response, Unset
+from ...types import UNSET, Unset
+from typing import cast
+
 
 
 def _get_kwargs(
@@ -26,7 +30,11 @@ def _get_kwargs(
     oid: str | Unset = UNSET,
     path: str | Unset = UNSET,
     depth: int | Unset = UNSET,
+
 ) -> dict[str, Any]:
+    
+
+    
 
     params: dict[str, Any] = {}
 
@@ -36,48 +44,30 @@ def _get_kwargs(
 
     params["depth"] = depth
 
+
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
+
 
     _kwargs: dict[str, Any] = {
         "method": "get",
-        "url": "/{org}/{repo}/content".format(
-            org=quote(str(org), safe=""),
-            repo=quote(str(repo), safe=""),
-        ),
+        "url": "/{org}/{repo}/content".format(org=quote(str(org), safe=""),repo=quote(str(repo), safe=""),),
         "params": params,
     }
+
 
     return _kwargs
 
 
-def _parse_response(
-    *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> (
-    GetByOrgByRepoContentResponse200Type0
-    | GetByOrgByRepoContentResponse200Type1
-    | GetByOrgByRepoContentResponse200Type2
-    | GetByOrgByRepoContentResponse400
-    | GetByOrgByRepoContentResponse401
-    | GetByOrgByRepoContentResponse403
-    | GetByOrgByRepoContentResponse404
-    | GetByOrgByRepoContentResponse406
-    | GetByOrgByRepoContentResponse409
-    | GetByOrgByRepoContentResponse500
-    | None
-):
-    if response.status_code == 200:
 
-        def _parse_response_200(
-            data: object,
-        ) -> (
-            GetByOrgByRepoContentResponse200Type0
-            | GetByOrgByRepoContentResponse200Type1
-            | GetByOrgByRepoContentResponse200Type2
-        ):
+def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> GetByOrgByRepoContentResponse200Type0 | GetByOrgByRepoContentResponse200Type1 | GetByOrgByRepoContentResponse200Type2 | GetByOrgByRepoContentResponse400 | GetByOrgByRepoContentResponse401 | GetByOrgByRepoContentResponse403 | GetByOrgByRepoContentResponse404 | GetByOrgByRepoContentResponse406 | GetByOrgByRepoContentResponse409 | GetByOrgByRepoContentResponse500 | None:
+    if response.status_code == 200:
+        def _parse_response_200(data: object) -> GetByOrgByRepoContentResponse200Type0 | GetByOrgByRepoContentResponse200Type1 | GetByOrgByRepoContentResponse200Type2:
             try:
                 if not isinstance(data, dict):
                     raise TypeError()
                 response_200_type_0 = GetByOrgByRepoContentResponse200Type0.from_dict(data)
+
+
 
                 return response_200_type_0
             except (TypeError, ValueError, AttributeError, KeyError):
@@ -87,12 +77,16 @@ def _parse_response(
                     raise TypeError()
                 response_200_type_1 = GetByOrgByRepoContentResponse200Type1.from_dict(data)
 
+
+
                 return response_200_type_1
             except (TypeError, ValueError, AttributeError, KeyError):
                 pass
             if not isinstance(data, dict):
                 raise TypeError()
             response_200_type_2 = GetByOrgByRepoContentResponse200Type2.from_dict(data)
+
+
 
             return response_200_type_2
 
@@ -103,35 +97,49 @@ def _parse_response(
     if response.status_code == 400:
         response_400 = GetByOrgByRepoContentResponse400.from_dict(response.json())
 
+
+
         return response_400
 
     if response.status_code == 401:
         response_401 = GetByOrgByRepoContentResponse401.from_dict(response.json())
+
+
 
         return response_401
 
     if response.status_code == 403:
         response_403 = GetByOrgByRepoContentResponse403.from_dict(response.json())
 
+
+
         return response_403
 
     if response.status_code == 404:
         response_404 = GetByOrgByRepoContentResponse404.from_dict(response.json())
+
+
 
         return response_404
 
     if response.status_code == 406:
         response_406 = GetByOrgByRepoContentResponse406.from_dict(response.json())
 
+
+
         return response_406
 
     if response.status_code == 409:
         response_409 = GetByOrgByRepoContentResponse409.from_dict(response.json())
 
+
+
         return response_409
 
     if response.status_code == 500:
         response_500 = GetByOrgByRepoContentResponse500.from_dict(response.json())
+
+
 
         return response_500
 
@@ -141,20 +149,7 @@ def _parse_response(
         return None
 
 
-def _build_response(
-    *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[
-    GetByOrgByRepoContentResponse200Type0
-    | GetByOrgByRepoContentResponse200Type1
-    | GetByOrgByRepoContentResponse200Type2
-    | GetByOrgByRepoContentResponse400
-    | GetByOrgByRepoContentResponse401
-    | GetByOrgByRepoContentResponse403
-    | GetByOrgByRepoContentResponse404
-    | GetByOrgByRepoContentResponse406
-    | GetByOrgByRepoContentResponse409
-    | GetByOrgByRepoContentResponse500
-]:
+def _build_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> Response[GetByOrgByRepoContentResponse200Type0 | GetByOrgByRepoContentResponse200Type1 | GetByOrgByRepoContentResponse200Type2 | GetByOrgByRepoContentResponse400 | GetByOrgByRepoContentResponse401 | GetByOrgByRepoContentResponse403 | GetByOrgByRepoContentResponse404 | GetByOrgByRepoContentResponse406 | GetByOrgByRepoContentResponse409 | GetByOrgByRepoContentResponse500]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -171,19 +166,9 @@ def sync_detailed(
     oid: str | Unset = UNSET,
     path: str | Unset = UNSET,
     depth: int | Unset = UNSET,
-) -> Response[
-    GetByOrgByRepoContentResponse200Type0
-    | GetByOrgByRepoContentResponse200Type1
-    | GetByOrgByRepoContentResponse200Type2
-    | GetByOrgByRepoContentResponse400
-    | GetByOrgByRepoContentResponse401
-    | GetByOrgByRepoContentResponse403
-    | GetByOrgByRepoContentResponse404
-    | GetByOrgByRepoContentResponse406
-    | GetByOrgByRepoContentResponse409
-    | GetByOrgByRepoContentResponse500
-]:
-    """Get content
+
+) -> Response[GetByOrgByRepoContentResponse200Type0 | GetByOrgByRepoContentResponse200Type1 | GetByOrgByRepoContentResponse200Type2 | GetByOrgByRepoContentResponse400 | GetByOrgByRepoContentResponse401 | GetByOrgByRepoContentResponse403 | GetByOrgByRepoContentResponse404 | GetByOrgByRepoContentResponse406 | GetByOrgByRepoContentResponse409 | GetByOrgByRepoContentResponse500]:
+    """ Get content
 
      Get file content or directory listing at a path. Use Accept: application/json for the JSON union
     response, or Accept: application/octet-stream for raw file bytes. Directory + octet-stream requests
@@ -202,14 +187,16 @@ def sync_detailed(
 
     Returns:
         Response[GetByOrgByRepoContentResponse200Type0 | GetByOrgByRepoContentResponse200Type1 | GetByOrgByRepoContentResponse200Type2 | GetByOrgByRepoContentResponse400 | GetByOrgByRepoContentResponse401 | GetByOrgByRepoContentResponse403 | GetByOrgByRepoContentResponse404 | GetByOrgByRepoContentResponse406 | GetByOrgByRepoContentResponse409 | GetByOrgByRepoContentResponse500]
-    """
+     """
+
 
     kwargs = _get_kwargs(
         org=org,
-        repo=repo,
-        oid=oid,
-        path=path,
-        depth=depth,
+repo=repo,
+oid=oid,
+path=path,
+depth=depth,
+
     )
 
     response = client.get_httpx_client().request(
@@ -217,7 +204,6 @@ def sync_detailed(
     )
 
     return _build_response(client=client, response=response)
-
 
 def sync(
     org: str,
@@ -227,20 +213,9 @@ def sync(
     oid: str | Unset = UNSET,
     path: str | Unset = UNSET,
     depth: int | Unset = UNSET,
-) -> (
-    GetByOrgByRepoContentResponse200Type0
-    | GetByOrgByRepoContentResponse200Type1
-    | GetByOrgByRepoContentResponse200Type2
-    | GetByOrgByRepoContentResponse400
-    | GetByOrgByRepoContentResponse401
-    | GetByOrgByRepoContentResponse403
-    | GetByOrgByRepoContentResponse404
-    | GetByOrgByRepoContentResponse406
-    | GetByOrgByRepoContentResponse409
-    | GetByOrgByRepoContentResponse500
-    | None
-):
-    """Get content
+
+) -> GetByOrgByRepoContentResponse200Type0 | GetByOrgByRepoContentResponse200Type1 | GetByOrgByRepoContentResponse200Type2 | GetByOrgByRepoContentResponse400 | GetByOrgByRepoContentResponse401 | GetByOrgByRepoContentResponse403 | GetByOrgByRepoContentResponse404 | GetByOrgByRepoContentResponse406 | GetByOrgByRepoContentResponse409 | GetByOrgByRepoContentResponse500 | None:
+    """ Get content
 
      Get file content or directory listing at a path. Use Accept: application/json for the JSON union
     response, or Accept: application/octet-stream for raw file bytes. Directory + octet-stream requests
@@ -259,17 +234,18 @@ def sync(
 
     Returns:
         GetByOrgByRepoContentResponse200Type0 | GetByOrgByRepoContentResponse200Type1 | GetByOrgByRepoContentResponse200Type2 | GetByOrgByRepoContentResponse400 | GetByOrgByRepoContentResponse401 | GetByOrgByRepoContentResponse403 | GetByOrgByRepoContentResponse404 | GetByOrgByRepoContentResponse406 | GetByOrgByRepoContentResponse409 | GetByOrgByRepoContentResponse500
-    """
+     """
+
 
     return sync_detailed(
         org=org,
-        repo=repo,
-        client=client,
-        oid=oid,
-        path=path,
-        depth=depth,
-    ).parsed
+repo=repo,
+client=client,
+oid=oid,
+path=path,
+depth=depth,
 
+    ).parsed
 
 async def asyncio_detailed(
     org: str,
@@ -279,19 +255,9 @@ async def asyncio_detailed(
     oid: str | Unset = UNSET,
     path: str | Unset = UNSET,
     depth: int | Unset = UNSET,
-) -> Response[
-    GetByOrgByRepoContentResponse200Type0
-    | GetByOrgByRepoContentResponse200Type1
-    | GetByOrgByRepoContentResponse200Type2
-    | GetByOrgByRepoContentResponse400
-    | GetByOrgByRepoContentResponse401
-    | GetByOrgByRepoContentResponse403
-    | GetByOrgByRepoContentResponse404
-    | GetByOrgByRepoContentResponse406
-    | GetByOrgByRepoContentResponse409
-    | GetByOrgByRepoContentResponse500
-]:
-    """Get content
+
+) -> Response[GetByOrgByRepoContentResponse200Type0 | GetByOrgByRepoContentResponse200Type1 | GetByOrgByRepoContentResponse200Type2 | GetByOrgByRepoContentResponse400 | GetByOrgByRepoContentResponse401 | GetByOrgByRepoContentResponse403 | GetByOrgByRepoContentResponse404 | GetByOrgByRepoContentResponse406 | GetByOrgByRepoContentResponse409 | GetByOrgByRepoContentResponse500]:
+    """ Get content
 
      Get file content or directory listing at a path. Use Accept: application/json for the JSON union
     response, or Accept: application/octet-stream for raw file bytes. Directory + octet-stream requests
@@ -310,20 +276,23 @@ async def asyncio_detailed(
 
     Returns:
         Response[GetByOrgByRepoContentResponse200Type0 | GetByOrgByRepoContentResponse200Type1 | GetByOrgByRepoContentResponse200Type2 | GetByOrgByRepoContentResponse400 | GetByOrgByRepoContentResponse401 | GetByOrgByRepoContentResponse403 | GetByOrgByRepoContentResponse404 | GetByOrgByRepoContentResponse406 | GetByOrgByRepoContentResponse409 | GetByOrgByRepoContentResponse500]
-    """
+     """
+
 
     kwargs = _get_kwargs(
         org=org,
-        repo=repo,
-        oid=oid,
-        path=path,
-        depth=depth,
+repo=repo,
+oid=oid,
+path=path,
+depth=depth,
+
     )
 
-    response = await client.get_async_httpx_client().request(**kwargs)
+    response = await client.get_async_httpx_client().request(
+        **kwargs
+    )
 
     return _build_response(client=client, response=response)
-
 
 async def asyncio(
     org: str,
@@ -333,20 +302,9 @@ async def asyncio(
     oid: str | Unset = UNSET,
     path: str | Unset = UNSET,
     depth: int | Unset = UNSET,
-) -> (
-    GetByOrgByRepoContentResponse200Type0
-    | GetByOrgByRepoContentResponse200Type1
-    | GetByOrgByRepoContentResponse200Type2
-    | GetByOrgByRepoContentResponse400
-    | GetByOrgByRepoContentResponse401
-    | GetByOrgByRepoContentResponse403
-    | GetByOrgByRepoContentResponse404
-    | GetByOrgByRepoContentResponse406
-    | GetByOrgByRepoContentResponse409
-    | GetByOrgByRepoContentResponse500
-    | None
-):
-    """Get content
+
+) -> GetByOrgByRepoContentResponse200Type0 | GetByOrgByRepoContentResponse200Type1 | GetByOrgByRepoContentResponse200Type2 | GetByOrgByRepoContentResponse400 | GetByOrgByRepoContentResponse401 | GetByOrgByRepoContentResponse403 | GetByOrgByRepoContentResponse404 | GetByOrgByRepoContentResponse406 | GetByOrgByRepoContentResponse409 | GetByOrgByRepoContentResponse500 | None:
+    """ Get content
 
      Get file content or directory listing at a path. Use Accept: application/json for the JSON union
     response, or Accept: application/octet-stream for raw file bytes. Directory + octet-stream requests
@@ -365,15 +323,15 @@ async def asyncio(
 
     Returns:
         GetByOrgByRepoContentResponse200Type0 | GetByOrgByRepoContentResponse200Type1 | GetByOrgByRepoContentResponse200Type2 | GetByOrgByRepoContentResponse400 | GetByOrgByRepoContentResponse401 | GetByOrgByRepoContentResponse403 | GetByOrgByRepoContentResponse404 | GetByOrgByRepoContentResponse406 | GetByOrgByRepoContentResponse409 | GetByOrgByRepoContentResponse500
-    """
+     """
 
-    return (
-        await asyncio_detailed(
-            org=org,
-            repo=repo,
-            client=client,
-            oid=oid,
-            path=path,
-            depth=depth,
-        )
-    ).parsed
+
+    return (await asyncio_detailed(
+        org=org,
+repo=repo,
+client=client,
+oid=oid,
+path=path,
+depth=depth,
+
+    )).parsed

@@ -1,34 +1,40 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar, cast
+from typing import Any, TypeVar, BinaryIO, TextIO, TYPE_CHECKING, Generator
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..types import UNSET, Unset
+
+from typing import cast
+
 if TYPE_CHECKING:
-    from ..models.get_by_org_repos_response_200_repos_item_upstream_type_0 import (
-        GetByOrgReposResponse200ReposItemUpstreamType0,
-    )
+  from ..models.get_by_org_repos_response_200_repos_item_upstream_type_0 import GetByOrgReposResponse200ReposItemUpstreamType0
+
+
+
 
 
 T = TypeVar("T", bound="GetByOrgReposResponse200ReposItem")
 
 
+
 @_attrs_define
 class GetByOrgReposResponse200ReposItem:
-    """
-    Attributes:
-        id (str):
-        org (str):
-        name (str):
-        default_branch (str):
-        head_oid (None | str):
-        size_bytes (float):
-        created_at (str):
-        upstream (GetByOrgReposResponse200ReposItemUpstreamType0 | None): Optionally add an upstream repository. You can
-            configure automatic syncing from the upstream repository.
-    """
+    """ 
+        Attributes:
+            id (str):
+            org (str):
+            name (str):
+            default_branch (str):
+            head_oid (None | str):
+            size_bytes (float):
+            created_at (str):
+            upstream (GetByOrgReposResponse200ReposItemUpstreamType0 | None): Optionally add an upstream repository. You can
+                configure automatic syncing from the upstream repository.
+     """
 
     id: str
     org: str
@@ -40,11 +46,12 @@ class GetByOrgReposResponse200ReposItem:
     upstream: GetByOrgReposResponse200ReposItemUpstreamType0 | None
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
-    def to_dict(self) -> dict[str, Any]:
-        from ..models.get_by_org_repos_response_200_repos_item_upstream_type_0 import (
-            GetByOrgReposResponse200ReposItemUpstreamType0,
-        )
 
+
+
+
+    def to_dict(self) -> dict[str, Any]:
+        from ..models.get_by_org_repos_response_200_repos_item_upstream_type_0 import GetByOrgReposResponse200ReposItemUpstreamType0
         id = self.id
 
         org = self.org
@@ -66,29 +73,27 @@ class GetByOrgReposResponse200ReposItem:
         else:
             upstream = self.upstream
 
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "id": id,
-                "org": org,
-                "name": name,
-                "default_branch": default_branch,
-                "head_oid": head_oid,
-                "size_bytes": size_bytes,
-                "created_at": created_at,
-                "upstream": upstream,
-            }
-        )
+        field_dict.update({
+            "id": id,
+            "org": org,
+            "name": name,
+            "default_branch": default_branch,
+            "head_oid": head_oid,
+            "size_bytes": size_bytes,
+            "created_at": created_at,
+            "upstream": upstream,
+        })
 
         return field_dict
 
+
+
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.get_by_org_repos_response_200_repos_item_upstream_type_0 import (
-            GetByOrgReposResponse200ReposItemUpstreamType0,
-        )
-
+        from ..models.get_by_org_repos_response_200_repos_item_upstream_type_0 import GetByOrgReposResponse200ReposItemUpstreamType0
         d = dict(src_dict)
         id = d.pop("id")
 
@@ -105,6 +110,7 @@ class GetByOrgReposResponse200ReposItem:
 
         head_oid = _parse_head_oid(d.pop("head_oid"))
 
+
         size_bytes = d.pop("size_bytes")
 
         created_at = d.pop("created_at")
@@ -117,12 +123,15 @@ class GetByOrgReposResponse200ReposItem:
                     raise TypeError()
                 upstream_type_0 = GetByOrgReposResponse200ReposItemUpstreamType0.from_dict(data)
 
+
+
                 return upstream_type_0
             except (TypeError, ValueError, AttributeError, KeyError):
                 pass
             return cast(GetByOrgReposResponse200ReposItemUpstreamType0 | None, data)
 
         upstream = _parse_upstream(d.pop("upstream"))
+
 
         get_by_org_repos_response_200_repos_item = cls(
             id=id,
@@ -134,6 +143,7 @@ class GetByOrgReposResponse200ReposItem:
             created_at=created_at,
             upstream=upstream,
         )
+
 
         get_by_org_repos_response_200_repos_item.additional_properties = d
         return get_by_org_repos_response_200_repos_item

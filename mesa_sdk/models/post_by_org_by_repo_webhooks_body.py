@@ -1,27 +1,36 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import Any, TypeVar, cast
+from typing import Any, TypeVar, BinaryIO, TextIO, TYPE_CHECKING, Generator
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..types import UNSET, Unset
+
 from ..models.post_by_org_by_repo_webhooks_body_events_item import PostByOrgByRepoWebhooksBodyEventsItem
 from ..types import UNSET, Unset
+from typing import cast
+
+
+
+
+
 
 T = TypeVar("T", bound="PostByOrgByRepoWebhooksBody")
 
 
+
 @_attrs_define
 class PostByOrgByRepoWebhooksBody:
-    """
-    Attributes:
-        url (str):
-        events (list[PostByOrgByRepoWebhooksBodyEventsItem] | Unset):
-        branches (list[str] | Unset):
-        globs (list[str] | Unset):
-        secret (str | Unset):
-    """
+    """ 
+        Attributes:
+            url (str):
+            events (list[PostByOrgByRepoWebhooksBodyEventsItem] | Unset):
+            branches (list[str] | Unset):
+            globs (list[str] | Unset):
+            secret (str | Unset):
+     """
 
     url: str
     events: list[PostByOrgByRepoWebhooksBodyEventsItem] | Unset = UNSET
@@ -29,6 +38,10 @@ class PostByOrgByRepoWebhooksBody:
     globs: list[str] | Unset = UNSET
     secret: str | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
+
+
+
+
 
     def to_dict(self) -> dict[str, Any]:
         url = self.url
@@ -40,23 +53,28 @@ class PostByOrgByRepoWebhooksBody:
                 events_item = events_item_data.value
                 events.append(events_item)
 
+
+
         branches: list[str] | Unset = UNSET
         if not isinstance(self.branches, Unset):
             branches = self.branches
+
+
 
         globs: list[str] | Unset = UNSET
         if not isinstance(self.globs, Unset):
             globs = self.globs
 
+
+
         secret = self.secret
+
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "url": url,
-            }
-        )
+        field_dict.update({
+            "url": url,
+        })
         if events is not UNSET:
             field_dict["events"] = events
         if branches is not UNSET:
@@ -67,6 +85,8 @@ class PostByOrgByRepoWebhooksBody:
             field_dict["secret"] = secret
 
         return field_dict
+
+
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
@@ -80,11 +100,16 @@ class PostByOrgByRepoWebhooksBody:
             for events_item_data in _events:
                 events_item = PostByOrgByRepoWebhooksBodyEventsItem(events_item_data)
 
+
+
                 events.append(events_item)
+
 
         branches = cast(list[str], d.pop("branches", UNSET))
 
+
         globs = cast(list[str], d.pop("globs", UNSET))
+
 
         secret = d.pop("secret", UNSET)
 
@@ -95,6 +120,7 @@ class PostByOrgByRepoWebhooksBody:
             globs=globs,
             secret=secret,
         )
+
 
         post_by_org_by_repo_webhooks_body.additional_properties = d
         return post_by_org_by_repo_webhooks_body

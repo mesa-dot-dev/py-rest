@@ -1,51 +1,68 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar
+from typing import Any, TypeVar, BinaryIO, TextIO, TYPE_CHECKING, Generator
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..types import UNSET, Unset
+
+from typing import cast
+
 if TYPE_CHECKING:
-    from ..models.get_by_org_by_repo_content_response_406_error import GetByOrgByRepoContentResponse406Error
+  from ..models.get_by_org_by_repo_content_response_406_error import GetByOrgByRepoContentResponse406Error
+
+
+
 
 
 T = TypeVar("T", bound="GetByOrgByRepoContentResponse406")
 
 
+
 @_attrs_define
 class GetByOrgByRepoContentResponse406:
-    """
-    Attributes:
-        error (GetByOrgByRepoContentResponse406Error):
-    """
+    """ 
+        Attributes:
+            error (GetByOrgByRepoContentResponse406Error):
+     """
 
     error: GetByOrgByRepoContentResponse406Error
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
+
+
+
+
     def to_dict(self) -> dict[str, Any]:
+        from ..models.get_by_org_by_repo_content_response_406_error import GetByOrgByRepoContentResponse406Error
         error = self.error.to_dict()
+
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "error": error,
-            }
-        )
+        field_dict.update({
+            "error": error,
+        })
 
         return field_dict
+
+
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         from ..models.get_by_org_by_repo_content_response_406_error import GetByOrgByRepoContentResponse406Error
-
         d = dict(src_dict)
         error = GetByOrgByRepoContentResponse406Error.from_dict(d.pop("error"))
+
+
+
 
         get_by_org_by_repo_content_response_406 = cls(
             error=error,
         )
+
 
         get_by_org_by_repo_content_response_406.additional_properties = d
         return get_by_org_by_repo_content_response_406

@@ -1,36 +1,50 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import Any, TypeVar
+from typing import Any, TypeVar, BinaryIO, TextIO, TYPE_CHECKING, Generator
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..types import UNSET, Unset
+
+
+
+
+
+
+
 T = TypeVar("T", bound="DeleteByOrgApiKeysByIdResponse200")
+
 
 
 @_attrs_define
 class DeleteByOrgApiKeysByIdResponse200:
-    """
-    Attributes:
-        success (bool):
-    """
+    """ 
+        Attributes:
+            success (bool):
+     """
 
     success: bool
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
+
+
+
+
     def to_dict(self) -> dict[str, Any]:
         success = self.success
 
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "success": success,
-            }
-        )
+        field_dict.update({
+            "success": success,
+        })
 
         return field_dict
+
+
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
@@ -40,6 +54,7 @@ class DeleteByOrgApiKeysByIdResponse200:
         delete_by_org_api_keys_by_id_response_200 = cls(
             success=success,
         )
+
 
         delete_by_org_api_keys_by_id_response_200.additional_properties = d
         return delete_by_org_api_keys_by_id_response_200

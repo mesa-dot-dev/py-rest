@@ -1,6 +1,5 @@
 from enum import Enum
 
-
 class PostByOrgReposResponse201UpstreamType0AutosyncType0ResolutionStrategy(str, Enum):
     NONE = "none"
 

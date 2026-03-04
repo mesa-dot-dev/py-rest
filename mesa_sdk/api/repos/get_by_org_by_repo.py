@@ -1,11 +1,13 @@
 from http import HTTPStatus
-from typing import Any
+from typing import Any, cast
 from urllib.parse import quote
 
 import httpx
 
-from ... import errors
 from ...client import AuthenticatedClient, Client
+from ...types import Response, UNSET
+from ... import errors
+
 from ...models.get_by_org_by_repo_response_200 import GetByOrgByRepoResponse200
 from ...models.get_by_org_by_repo_response_400 import GetByOrgByRepoResponse400
 from ...models.get_by_org_by_repo_response_401 import GetByOrgByRepoResponse401
@@ -14,75 +16,85 @@ from ...models.get_by_org_by_repo_response_404 import GetByOrgByRepoResponse404
 from ...models.get_by_org_by_repo_response_406 import GetByOrgByRepoResponse406
 from ...models.get_by_org_by_repo_response_409 import GetByOrgByRepoResponse409
 from ...models.get_by_org_by_repo_response_500 import GetByOrgByRepoResponse500
-from ...types import Response
+from typing import cast
+
 
 
 def _get_kwargs(
     org: str,
     repo: str,
+
 ) -> dict[str, Any]:
+    
+
+    
+
+    
 
     _kwargs: dict[str, Any] = {
         "method": "get",
-        "url": "/{org}/{repo}".format(
-            org=quote(str(org), safe=""),
-            repo=quote(str(repo), safe=""),
-        ),
+        "url": "/{org}/{repo}".format(org=quote(str(org), safe=""),repo=quote(str(repo), safe=""),),
     }
+
 
     return _kwargs
 
 
-def _parse_response(
-    *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> (
-    GetByOrgByRepoResponse200
-    | GetByOrgByRepoResponse400
-    | GetByOrgByRepoResponse401
-    | GetByOrgByRepoResponse403
-    | GetByOrgByRepoResponse404
-    | GetByOrgByRepoResponse406
-    | GetByOrgByRepoResponse409
-    | GetByOrgByRepoResponse500
-    | None
-):
+
+def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> GetByOrgByRepoResponse200 | GetByOrgByRepoResponse400 | GetByOrgByRepoResponse401 | GetByOrgByRepoResponse403 | GetByOrgByRepoResponse404 | GetByOrgByRepoResponse406 | GetByOrgByRepoResponse409 | GetByOrgByRepoResponse500 | None:
     if response.status_code == 200:
         response_200 = GetByOrgByRepoResponse200.from_dict(response.json())
+
+
 
         return response_200
 
     if response.status_code == 400:
         response_400 = GetByOrgByRepoResponse400.from_dict(response.json())
 
+
+
         return response_400
 
     if response.status_code == 401:
         response_401 = GetByOrgByRepoResponse401.from_dict(response.json())
+
+
 
         return response_401
 
     if response.status_code == 403:
         response_403 = GetByOrgByRepoResponse403.from_dict(response.json())
 
+
+
         return response_403
 
     if response.status_code == 404:
         response_404 = GetByOrgByRepoResponse404.from_dict(response.json())
+
+
 
         return response_404
 
     if response.status_code == 406:
         response_406 = GetByOrgByRepoResponse406.from_dict(response.json())
 
+
+
         return response_406
 
     if response.status_code == 409:
         response_409 = GetByOrgByRepoResponse409.from_dict(response.json())
 
+
+
         return response_409
 
     if response.status_code == 500:
         response_500 = GetByOrgByRepoResponse500.from_dict(response.json())
+
+
 
         return response_500
 
@@ -92,18 +104,7 @@ def _parse_response(
         return None
 
 
-def _build_response(
-    *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[
-    GetByOrgByRepoResponse200
-    | GetByOrgByRepoResponse400
-    | GetByOrgByRepoResponse401
-    | GetByOrgByRepoResponse403
-    | GetByOrgByRepoResponse404
-    | GetByOrgByRepoResponse406
-    | GetByOrgByRepoResponse409
-    | GetByOrgByRepoResponse500
-]:
+def _build_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> Response[GetByOrgByRepoResponse200 | GetByOrgByRepoResponse400 | GetByOrgByRepoResponse401 | GetByOrgByRepoResponse403 | GetByOrgByRepoResponse404 | GetByOrgByRepoResponse406 | GetByOrgByRepoResponse409 | GetByOrgByRepoResponse500]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -117,17 +118,9 @@ def sync_detailed(
     repo: str,
     *,
     client: AuthenticatedClient | Client,
-) -> Response[
-    GetByOrgByRepoResponse200
-    | GetByOrgByRepoResponse400
-    | GetByOrgByRepoResponse401
-    | GetByOrgByRepoResponse403
-    | GetByOrgByRepoResponse404
-    | GetByOrgByRepoResponse406
-    | GetByOrgByRepoResponse409
-    | GetByOrgByRepoResponse500
-]:
-    """Get repository
+
+) -> Response[GetByOrgByRepoResponse200 | GetByOrgByRepoResponse400 | GetByOrgByRepoResponse401 | GetByOrgByRepoResponse403 | GetByOrgByRepoResponse404 | GetByOrgByRepoResponse406 | GetByOrgByRepoResponse409 | GetByOrgByRepoResponse500]:
+    """ Get repository
 
      Get metadata for a specific repository
 
@@ -141,11 +134,13 @@ def sync_detailed(
 
     Returns:
         Response[GetByOrgByRepoResponse200 | GetByOrgByRepoResponse400 | GetByOrgByRepoResponse401 | GetByOrgByRepoResponse403 | GetByOrgByRepoResponse404 | GetByOrgByRepoResponse406 | GetByOrgByRepoResponse409 | GetByOrgByRepoResponse500]
-    """
+     """
+
 
     kwargs = _get_kwargs(
         org=org,
-        repo=repo,
+repo=repo,
+
     )
 
     response = client.get_httpx_client().request(
@@ -154,24 +149,14 @@ def sync_detailed(
 
     return _build_response(client=client, response=response)
 
-
 def sync(
     org: str,
     repo: str,
     *,
     client: AuthenticatedClient | Client,
-) -> (
-    GetByOrgByRepoResponse200
-    | GetByOrgByRepoResponse400
-    | GetByOrgByRepoResponse401
-    | GetByOrgByRepoResponse403
-    | GetByOrgByRepoResponse404
-    | GetByOrgByRepoResponse406
-    | GetByOrgByRepoResponse409
-    | GetByOrgByRepoResponse500
-    | None
-):
-    """Get repository
+
+) -> GetByOrgByRepoResponse200 | GetByOrgByRepoResponse400 | GetByOrgByRepoResponse401 | GetByOrgByRepoResponse403 | GetByOrgByRepoResponse404 | GetByOrgByRepoResponse406 | GetByOrgByRepoResponse409 | GetByOrgByRepoResponse500 | None:
+    """ Get repository
 
      Get metadata for a specific repository
 
@@ -185,31 +170,24 @@ def sync(
 
     Returns:
         GetByOrgByRepoResponse200 | GetByOrgByRepoResponse400 | GetByOrgByRepoResponse401 | GetByOrgByRepoResponse403 | GetByOrgByRepoResponse404 | GetByOrgByRepoResponse406 | GetByOrgByRepoResponse409 | GetByOrgByRepoResponse500
-    """
+     """
+
 
     return sync_detailed(
         org=org,
-        repo=repo,
-        client=client,
-    ).parsed
+repo=repo,
+client=client,
 
+    ).parsed
 
 async def asyncio_detailed(
     org: str,
     repo: str,
     *,
     client: AuthenticatedClient | Client,
-) -> Response[
-    GetByOrgByRepoResponse200
-    | GetByOrgByRepoResponse400
-    | GetByOrgByRepoResponse401
-    | GetByOrgByRepoResponse403
-    | GetByOrgByRepoResponse404
-    | GetByOrgByRepoResponse406
-    | GetByOrgByRepoResponse409
-    | GetByOrgByRepoResponse500
-]:
-    """Get repository
+
+) -> Response[GetByOrgByRepoResponse200 | GetByOrgByRepoResponse400 | GetByOrgByRepoResponse401 | GetByOrgByRepoResponse403 | GetByOrgByRepoResponse404 | GetByOrgByRepoResponse406 | GetByOrgByRepoResponse409 | GetByOrgByRepoResponse500]:
+    """ Get repository
 
      Get metadata for a specific repository
 
@@ -223,35 +201,29 @@ async def asyncio_detailed(
 
     Returns:
         Response[GetByOrgByRepoResponse200 | GetByOrgByRepoResponse400 | GetByOrgByRepoResponse401 | GetByOrgByRepoResponse403 | GetByOrgByRepoResponse404 | GetByOrgByRepoResponse406 | GetByOrgByRepoResponse409 | GetByOrgByRepoResponse500]
-    """
+     """
+
 
     kwargs = _get_kwargs(
         org=org,
-        repo=repo,
+repo=repo,
+
     )
 
-    response = await client.get_async_httpx_client().request(**kwargs)
+    response = await client.get_async_httpx_client().request(
+        **kwargs
+    )
 
     return _build_response(client=client, response=response)
-
 
 async def asyncio(
     org: str,
     repo: str,
     *,
     client: AuthenticatedClient | Client,
-) -> (
-    GetByOrgByRepoResponse200
-    | GetByOrgByRepoResponse400
-    | GetByOrgByRepoResponse401
-    | GetByOrgByRepoResponse403
-    | GetByOrgByRepoResponse404
-    | GetByOrgByRepoResponse406
-    | GetByOrgByRepoResponse409
-    | GetByOrgByRepoResponse500
-    | None
-):
-    """Get repository
+
+) -> GetByOrgByRepoResponse200 | GetByOrgByRepoResponse400 | GetByOrgByRepoResponse401 | GetByOrgByRepoResponse403 | GetByOrgByRepoResponse404 | GetByOrgByRepoResponse406 | GetByOrgByRepoResponse409 | GetByOrgByRepoResponse500 | None:
+    """ Get repository
 
      Get metadata for a specific repository
 
@@ -265,12 +237,12 @@ async def asyncio(
 
     Returns:
         GetByOrgByRepoResponse200 | GetByOrgByRepoResponse400 | GetByOrgByRepoResponse401 | GetByOrgByRepoResponse403 | GetByOrgByRepoResponse404 | GetByOrgByRepoResponse406 | GetByOrgByRepoResponse409 | GetByOrgByRepoResponse500
-    """
+     """
 
-    return (
-        await asyncio_detailed(
-            org=org,
-            repo=repo,
-            client=client,
-        )
-    ).parsed
+
+    return (await asyncio_detailed(
+        org=org,
+repo=repo,
+client=client,
+
+    )).parsed

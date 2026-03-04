@@ -1,31 +1,38 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar, cast
+from typing import Any, TypeVar, BinaryIO, TextIO, TYPE_CHECKING, Generator
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
+from ..types import UNSET, Unset
+from typing import cast
+
 if TYPE_CHECKING:
-    from ..models.post_by_org_repos_body_upstream_autosync_type_0 import PostByOrgReposBodyUpstreamAutosyncType0
+  from ..models.post_by_org_repos_body_upstream_autosync_type_0 import PostByOrgReposBodyUpstreamAutosyncType0
+
+
+
 
 
 T = TypeVar("T", bound="PostByOrgReposBodyUpstream")
 
 
+
 @_attrs_define
 class PostByOrgReposBodyUpstream:
-    """
-    Attributes:
-        uri (str): URL of the upstream repository
-        autosync (PostByOrgReposBodyUpstreamAutosyncType0 | Unset): Optionally enable automatic sync from the upstream
-            repository
-        token (None | str | Unset): Personal access token for private upstream repos. Set to null to unlink credential.
-        token_username (str | Unset): Username for git credential auth. Defaults to "x-access-token". Use actual
-            username for Bitbucket app passwords.
-    """
+    """ 
+        Attributes:
+            uri (str): URL of the upstream repository
+            autosync (PostByOrgReposBodyUpstreamAutosyncType0 | Unset): Optionally enable automatic sync from the upstream
+                repository
+            token (None | str | Unset): Personal access token for private upstream repos. Set to null to unlink credential.
+            token_username (str | Unset): Username for git credential auth. Defaults to "x-access-token". Use actual
+                username for Bitbucket app passwords.
+     """
 
     uri: str
     autosync: PostByOrgReposBodyUpstreamAutosyncType0 | Unset = UNSET
@@ -33,7 +40,12 @@ class PostByOrgReposBodyUpstream:
     token_username: str | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
+
+
+
+
     def to_dict(self) -> dict[str, Any]:
+        from ..models.post_by_org_repos_body_upstream_autosync_type_0 import PostByOrgReposBodyUpstreamAutosyncType0
         uri = self.uri
 
         autosync: dict[str, Any] | Unset
@@ -41,6 +53,7 @@ class PostByOrgReposBodyUpstream:
             autosync = UNSET
         else:
             autosync = self.autosync.to_dict()
+
 
         token: None | str | Unset
         if isinstance(self.token, Unset):
@@ -50,13 +63,12 @@ class PostByOrgReposBodyUpstream:
 
         token_username = self.token_username
 
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "uri": uri,
-            }
-        )
+        field_dict.update({
+            "uri": uri,
+        })
         if autosync is not UNSET:
             field_dict["autosync"] = autosync
         if token is not UNSET:
@@ -66,10 +78,11 @@ class PostByOrgReposBodyUpstream:
 
         return field_dict
 
+
+
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         from ..models.post_by_org_repos_body_upstream_autosync_type_0 import PostByOrgReposBodyUpstreamAutosyncType0
-
         d = dict(src_dict)
         uri = d.pop("uri")
 
@@ -80,9 +93,12 @@ class PostByOrgReposBodyUpstream:
                 raise TypeError()
             autosync_type_0 = PostByOrgReposBodyUpstreamAutosyncType0.from_dict(data)
 
+
+
             return autosync_type_0
 
         autosync = _parse_autosync(d.pop("autosync", UNSET))
+
 
         def _parse_token(data: object) -> None | str | Unset:
             if data is None:
@@ -93,6 +109,7 @@ class PostByOrgReposBodyUpstream:
 
         token = _parse_token(d.pop("token", UNSET))
 
+
         token_username = d.pop("token_username", UNSET)
 
         post_by_org_repos_body_upstream = cls(
@@ -101,6 +118,7 @@ class PostByOrgReposBodyUpstream:
             token=token,
             token_username=token_username,
         )
+
 
         post_by_org_repos_body_upstream.additional_properties = d
         return post_by_org_repos_body_upstream

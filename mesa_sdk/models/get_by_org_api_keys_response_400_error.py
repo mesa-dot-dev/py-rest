@@ -1,35 +1,47 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar
+from typing import Any, TypeVar, BinaryIO, TextIO, TYPE_CHECKING, Generator
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
+from ..types import UNSET, Unset
+from typing import cast
+
 if TYPE_CHECKING:
-    from ..models.get_by_org_api_keys_response_400_error_details import GetByOrgApiKeysResponse400ErrorDetails
+  from ..models.get_by_org_api_keys_response_400_error_details import GetByOrgApiKeysResponse400ErrorDetails
+
+
+
 
 
 T = TypeVar("T", bound="GetByOrgApiKeysResponse400Error")
 
 
+
 @_attrs_define
 class GetByOrgApiKeysResponse400Error:
-    """
-    Attributes:
-        code (str):
-        message (str):
-        details (GetByOrgApiKeysResponse400ErrorDetails | Unset):
-    """
+    """ 
+        Attributes:
+            code (str):
+            message (str):
+            details (GetByOrgApiKeysResponse400ErrorDetails | Unset):
+     """
 
     code: str
     message: str
     details: GetByOrgApiKeysResponse400ErrorDetails | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
+
+
+
+
     def to_dict(self) -> dict[str, Any]:
+        from ..models.get_by_org_api_keys_response_400_error_details import GetByOrgApiKeysResponse400ErrorDetails
         code = self.code
 
         message = self.message
@@ -38,23 +50,23 @@ class GetByOrgApiKeysResponse400Error:
         if not isinstance(self.details, Unset):
             details = self.details.to_dict()
 
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "code": code,
-                "message": message,
-            }
-        )
+        field_dict.update({
+            "code": code,
+            "message": message,
+        })
         if details is not UNSET:
             field_dict["details"] = details
 
         return field_dict
 
+
+
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         from ..models.get_by_org_api_keys_response_400_error_details import GetByOrgApiKeysResponse400ErrorDetails
-
         d = dict(src_dict)
         code = d.pop("code")
 
@@ -62,16 +74,20 @@ class GetByOrgApiKeysResponse400Error:
 
         _details = d.pop("details", UNSET)
         details: GetByOrgApiKeysResponse400ErrorDetails | Unset
-        if isinstance(_details, Unset):
+        if isinstance(_details,  Unset):
             details = UNSET
         else:
             details = GetByOrgApiKeysResponse400ErrorDetails.from_dict(_details)
+
+
+
 
         get_by_org_api_keys_response_400_error = cls(
             code=code,
             message=message,
             details=details,
         )
+
 
         get_by_org_api_keys_response_400_error.additional_properties = d
         return get_by_org_api_keys_response_400_error

@@ -1,32 +1,36 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar
+from typing import Any, TypeVar, BinaryIO, TextIO, TYPE_CHECKING, Generator
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..types import UNSET, Unset
+
+from typing import cast
+
 if TYPE_CHECKING:
-    from ..models.get_by_org_by_repo_commits_response_200_commits_item_author import (
-        GetByOrgByRepoCommitsResponse200CommitsItemAuthor,
-    )
-    from ..models.get_by_org_by_repo_commits_response_200_commits_item_committer import (
-        GetByOrgByRepoCommitsResponse200CommitsItemCommitter,
-    )
+  from ..models.get_by_org_by_repo_commits_response_200_commits_item_author import GetByOrgByRepoCommitsResponse200CommitsItemAuthor
+  from ..models.get_by_org_by_repo_commits_response_200_commits_item_committer import GetByOrgByRepoCommitsResponse200CommitsItemCommitter
+
+
+
 
 
 T = TypeVar("T", bound="GetByOrgByRepoCommitsResponse200CommitsItem")
 
 
+
 @_attrs_define
 class GetByOrgByRepoCommitsResponse200CommitsItem:
-    """
-    Attributes:
-        sha (str):
-        message (str):
-        author (GetByOrgByRepoCommitsResponse200CommitsItemAuthor):
-        committer (GetByOrgByRepoCommitsResponse200CommitsItemCommitter):
-    """
+    """ 
+        Attributes:
+            sha (str):
+            message (str):
+            author (GetByOrgByRepoCommitsResponse200CommitsItemAuthor):
+            committer (GetByOrgByRepoCommitsResponse200CommitsItemCommitter):
+     """
 
     sha: str
     message: str
@@ -34,7 +38,13 @@ class GetByOrgByRepoCommitsResponse200CommitsItem:
     committer: GetByOrgByRepoCommitsResponse200CommitsItemCommitter
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
+
+
+
+
     def to_dict(self) -> dict[str, Any]:
+        from ..models.get_by_org_by_repo_commits_response_200_commits_item_author import GetByOrgByRepoCommitsResponse200CommitsItemAuthor
+        from ..models.get_by_org_by_repo_commits_response_200_commits_item_committer import GetByOrgByRepoCommitsResponse200CommitsItemCommitter
         sha = self.sha
 
         message = self.message
@@ -43,28 +53,24 @@ class GetByOrgByRepoCommitsResponse200CommitsItem:
 
         committer = self.committer.to_dict()
 
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "sha": sha,
-                "message": message,
-                "author": author,
-                "committer": committer,
-            }
-        )
+        field_dict.update({
+            "sha": sha,
+            "message": message,
+            "author": author,
+            "committer": committer,
+        })
 
         return field_dict
 
+
+
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.get_by_org_by_repo_commits_response_200_commits_item_author import (
-            GetByOrgByRepoCommitsResponse200CommitsItemAuthor,
-        )
-        from ..models.get_by_org_by_repo_commits_response_200_commits_item_committer import (
-            GetByOrgByRepoCommitsResponse200CommitsItemCommitter,
-        )
-
+        from ..models.get_by_org_by_repo_commits_response_200_commits_item_author import GetByOrgByRepoCommitsResponse200CommitsItemAuthor
+        from ..models.get_by_org_by_repo_commits_response_200_commits_item_committer import GetByOrgByRepoCommitsResponse200CommitsItemCommitter
         d = dict(src_dict)
         sha = d.pop("sha")
 
@@ -72,7 +78,13 @@ class GetByOrgByRepoCommitsResponse200CommitsItem:
 
         author = GetByOrgByRepoCommitsResponse200CommitsItemAuthor.from_dict(d.pop("author"))
 
+
+
+
         committer = GetByOrgByRepoCommitsResponse200CommitsItemCommitter.from_dict(d.pop("committer"))
+
+
+
 
         get_by_org_by_repo_commits_response_200_commits_item = cls(
             sha=sha,
@@ -80,6 +92,7 @@ class GetByOrgByRepoCommitsResponse200CommitsItem:
             author=author,
             committer=committer,
         )
+
 
         get_by_org_by_repo_commits_response_200_commits_item.additional_properties = d
         return get_by_org_by_repo_commits_response_200_commits_item

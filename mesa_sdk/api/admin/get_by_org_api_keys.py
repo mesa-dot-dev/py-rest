@@ -1,11 +1,13 @@
 from http import HTTPStatus
-from typing import Any
+from typing import Any, cast
 from urllib.parse import quote
 
 import httpx
 
-from ... import errors
 from ...client import AuthenticatedClient, Client
+from ...types import Response, UNSET
+from ... import errors
+
 from ...models.get_by_org_api_keys_response_200 import GetByOrgApiKeysResponse200
 from ...models.get_by_org_api_keys_response_400 import GetByOrgApiKeysResponse400
 from ...models.get_by_org_api_keys_response_401 import GetByOrgApiKeysResponse401
@@ -14,73 +16,84 @@ from ...models.get_by_org_api_keys_response_404 import GetByOrgApiKeysResponse40
 from ...models.get_by_org_api_keys_response_406 import GetByOrgApiKeysResponse406
 from ...models.get_by_org_api_keys_response_409 import GetByOrgApiKeysResponse409
 from ...models.get_by_org_api_keys_response_500 import GetByOrgApiKeysResponse500
-from ...types import Response
+from typing import cast
+
 
 
 def _get_kwargs(
     org: str,
+
 ) -> dict[str, Any]:
+    
+
+    
+
+    
 
     _kwargs: dict[str, Any] = {
         "method": "get",
-        "url": "/{org}/api-keys".format(
-            org=quote(str(org), safe=""),
-        ),
+        "url": "/{org}/api-keys".format(org=quote(str(org), safe=""),),
     }
+
 
     return _kwargs
 
 
-def _parse_response(
-    *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> (
-    GetByOrgApiKeysResponse200
-    | GetByOrgApiKeysResponse400
-    | GetByOrgApiKeysResponse401
-    | GetByOrgApiKeysResponse403
-    | GetByOrgApiKeysResponse404
-    | GetByOrgApiKeysResponse406
-    | GetByOrgApiKeysResponse409
-    | GetByOrgApiKeysResponse500
-    | None
-):
+
+def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> GetByOrgApiKeysResponse200 | GetByOrgApiKeysResponse400 | GetByOrgApiKeysResponse401 | GetByOrgApiKeysResponse403 | GetByOrgApiKeysResponse404 | GetByOrgApiKeysResponse406 | GetByOrgApiKeysResponse409 | GetByOrgApiKeysResponse500 | None:
     if response.status_code == 200:
         response_200 = GetByOrgApiKeysResponse200.from_dict(response.json())
+
+
 
         return response_200
 
     if response.status_code == 400:
         response_400 = GetByOrgApiKeysResponse400.from_dict(response.json())
 
+
+
         return response_400
 
     if response.status_code == 401:
         response_401 = GetByOrgApiKeysResponse401.from_dict(response.json())
+
+
 
         return response_401
 
     if response.status_code == 403:
         response_403 = GetByOrgApiKeysResponse403.from_dict(response.json())
 
+
+
         return response_403
 
     if response.status_code == 404:
         response_404 = GetByOrgApiKeysResponse404.from_dict(response.json())
+
+
 
         return response_404
 
     if response.status_code == 406:
         response_406 = GetByOrgApiKeysResponse406.from_dict(response.json())
 
+
+
         return response_406
 
     if response.status_code == 409:
         response_409 = GetByOrgApiKeysResponse409.from_dict(response.json())
 
+
+
         return response_409
 
     if response.status_code == 500:
         response_500 = GetByOrgApiKeysResponse500.from_dict(response.json())
+
+
 
         return response_500
 
@@ -90,18 +103,7 @@ def _parse_response(
         return None
 
 
-def _build_response(
-    *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[
-    GetByOrgApiKeysResponse200
-    | GetByOrgApiKeysResponse400
-    | GetByOrgApiKeysResponse401
-    | GetByOrgApiKeysResponse403
-    | GetByOrgApiKeysResponse404
-    | GetByOrgApiKeysResponse406
-    | GetByOrgApiKeysResponse409
-    | GetByOrgApiKeysResponse500
-]:
+def _build_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> Response[GetByOrgApiKeysResponse200 | GetByOrgApiKeysResponse400 | GetByOrgApiKeysResponse401 | GetByOrgApiKeysResponse403 | GetByOrgApiKeysResponse404 | GetByOrgApiKeysResponse406 | GetByOrgApiKeysResponse409 | GetByOrgApiKeysResponse500]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -114,17 +116,9 @@ def sync_detailed(
     org: str,
     *,
     client: AuthenticatedClient | Client,
-) -> Response[
-    GetByOrgApiKeysResponse200
-    | GetByOrgApiKeysResponse400
-    | GetByOrgApiKeysResponse401
-    | GetByOrgApiKeysResponse403
-    | GetByOrgApiKeysResponse404
-    | GetByOrgApiKeysResponse406
-    | GetByOrgApiKeysResponse409
-    | GetByOrgApiKeysResponse500
-]:
-    """List API keys
+
+) -> Response[GetByOrgApiKeysResponse200 | GetByOrgApiKeysResponse400 | GetByOrgApiKeysResponse401 | GetByOrgApiKeysResponse403 | GetByOrgApiKeysResponse404 | GetByOrgApiKeysResponse406 | GetByOrgApiKeysResponse409 | GetByOrgApiKeysResponse500]:
+    """ List API keys
 
      List all API keys for the organization (key values are not returned)
 
@@ -137,10 +131,12 @@ def sync_detailed(
 
     Returns:
         Response[GetByOrgApiKeysResponse200 | GetByOrgApiKeysResponse400 | GetByOrgApiKeysResponse401 | GetByOrgApiKeysResponse403 | GetByOrgApiKeysResponse404 | GetByOrgApiKeysResponse406 | GetByOrgApiKeysResponse409 | GetByOrgApiKeysResponse500]
-    """
+     """
+
 
     kwargs = _get_kwargs(
         org=org,
+
     )
 
     response = client.get_httpx_client().request(
@@ -149,23 +145,13 @@ def sync_detailed(
 
     return _build_response(client=client, response=response)
 
-
 def sync(
     org: str,
     *,
     client: AuthenticatedClient | Client,
-) -> (
-    GetByOrgApiKeysResponse200
-    | GetByOrgApiKeysResponse400
-    | GetByOrgApiKeysResponse401
-    | GetByOrgApiKeysResponse403
-    | GetByOrgApiKeysResponse404
-    | GetByOrgApiKeysResponse406
-    | GetByOrgApiKeysResponse409
-    | GetByOrgApiKeysResponse500
-    | None
-):
-    """List API keys
+
+) -> GetByOrgApiKeysResponse200 | GetByOrgApiKeysResponse400 | GetByOrgApiKeysResponse401 | GetByOrgApiKeysResponse403 | GetByOrgApiKeysResponse404 | GetByOrgApiKeysResponse406 | GetByOrgApiKeysResponse409 | GetByOrgApiKeysResponse500 | None:
+    """ List API keys
 
      List all API keys for the organization (key values are not returned)
 
@@ -178,29 +164,22 @@ def sync(
 
     Returns:
         GetByOrgApiKeysResponse200 | GetByOrgApiKeysResponse400 | GetByOrgApiKeysResponse401 | GetByOrgApiKeysResponse403 | GetByOrgApiKeysResponse404 | GetByOrgApiKeysResponse406 | GetByOrgApiKeysResponse409 | GetByOrgApiKeysResponse500
-    """
+     """
+
 
     return sync_detailed(
         org=org,
-        client=client,
-    ).parsed
+client=client,
 
+    ).parsed
 
 async def asyncio_detailed(
     org: str,
     *,
     client: AuthenticatedClient | Client,
-) -> Response[
-    GetByOrgApiKeysResponse200
-    | GetByOrgApiKeysResponse400
-    | GetByOrgApiKeysResponse401
-    | GetByOrgApiKeysResponse403
-    | GetByOrgApiKeysResponse404
-    | GetByOrgApiKeysResponse406
-    | GetByOrgApiKeysResponse409
-    | GetByOrgApiKeysResponse500
-]:
-    """List API keys
+
+) -> Response[GetByOrgApiKeysResponse200 | GetByOrgApiKeysResponse400 | GetByOrgApiKeysResponse401 | GetByOrgApiKeysResponse403 | GetByOrgApiKeysResponse404 | GetByOrgApiKeysResponse406 | GetByOrgApiKeysResponse409 | GetByOrgApiKeysResponse500]:
+    """ List API keys
 
      List all API keys for the organization (key values are not returned)
 
@@ -213,33 +192,27 @@ async def asyncio_detailed(
 
     Returns:
         Response[GetByOrgApiKeysResponse200 | GetByOrgApiKeysResponse400 | GetByOrgApiKeysResponse401 | GetByOrgApiKeysResponse403 | GetByOrgApiKeysResponse404 | GetByOrgApiKeysResponse406 | GetByOrgApiKeysResponse409 | GetByOrgApiKeysResponse500]
-    """
+     """
+
 
     kwargs = _get_kwargs(
         org=org,
+
     )
 
-    response = await client.get_async_httpx_client().request(**kwargs)
+    response = await client.get_async_httpx_client().request(
+        **kwargs
+    )
 
     return _build_response(client=client, response=response)
-
 
 async def asyncio(
     org: str,
     *,
     client: AuthenticatedClient | Client,
-) -> (
-    GetByOrgApiKeysResponse200
-    | GetByOrgApiKeysResponse400
-    | GetByOrgApiKeysResponse401
-    | GetByOrgApiKeysResponse403
-    | GetByOrgApiKeysResponse404
-    | GetByOrgApiKeysResponse406
-    | GetByOrgApiKeysResponse409
-    | GetByOrgApiKeysResponse500
-    | None
-):
-    """List API keys
+
+) -> GetByOrgApiKeysResponse200 | GetByOrgApiKeysResponse400 | GetByOrgApiKeysResponse401 | GetByOrgApiKeysResponse403 | GetByOrgApiKeysResponse404 | GetByOrgApiKeysResponse406 | GetByOrgApiKeysResponse409 | GetByOrgApiKeysResponse500 | None:
+    """ List API keys
 
      List all API keys for the organization (key values are not returned)
 
@@ -252,11 +225,11 @@ async def asyncio(
 
     Returns:
         GetByOrgApiKeysResponse200 | GetByOrgApiKeysResponse400 | GetByOrgApiKeysResponse401 | GetByOrgApiKeysResponse403 | GetByOrgApiKeysResponse404 | GetByOrgApiKeysResponse406 | GetByOrgApiKeysResponse409 | GetByOrgApiKeysResponse500
-    """
+     """
 
-    return (
-        await asyncio_detailed(
-            org=org,
-            client=client,
-        )
-    ).parsed
+
+    return (await asyncio_detailed(
+        org=org,
+client=client,
+
+    )).parsed

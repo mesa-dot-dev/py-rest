@@ -1,37 +1,47 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar
+from typing import Any, TypeVar, BinaryIO, TextIO, TYPE_CHECKING, Generator
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
+from ..types import UNSET, Unset
+from typing import cast
+
 if TYPE_CHECKING:
-    from ..models.get_by_org_by_repo_commits_response_406_error_details import (
-        GetByOrgByRepoCommitsResponse406ErrorDetails,
-    )
+  from ..models.get_by_org_by_repo_commits_response_406_error_details import GetByOrgByRepoCommitsResponse406ErrorDetails
+
+
+
 
 
 T = TypeVar("T", bound="GetByOrgByRepoCommitsResponse406Error")
 
 
+
 @_attrs_define
 class GetByOrgByRepoCommitsResponse406Error:
-    """
-    Attributes:
-        code (str):
-        message (str):
-        details (GetByOrgByRepoCommitsResponse406ErrorDetails | Unset):
-    """
+    """ 
+        Attributes:
+            code (str):
+            message (str):
+            details (GetByOrgByRepoCommitsResponse406ErrorDetails | Unset):
+     """
 
     code: str
     message: str
     details: GetByOrgByRepoCommitsResponse406ErrorDetails | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
+
+
+
+
     def to_dict(self) -> dict[str, Any]:
+        from ..models.get_by_org_by_repo_commits_response_406_error_details import GetByOrgByRepoCommitsResponse406ErrorDetails
         code = self.code
 
         message = self.message
@@ -40,25 +50,23 @@ class GetByOrgByRepoCommitsResponse406Error:
         if not isinstance(self.details, Unset):
             details = self.details.to_dict()
 
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "code": code,
-                "message": message,
-            }
-        )
+        field_dict.update({
+            "code": code,
+            "message": message,
+        })
         if details is not UNSET:
             field_dict["details"] = details
 
         return field_dict
 
+
+
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.get_by_org_by_repo_commits_response_406_error_details import (
-            GetByOrgByRepoCommitsResponse406ErrorDetails,
-        )
-
+        from ..models.get_by_org_by_repo_commits_response_406_error_details import GetByOrgByRepoCommitsResponse406ErrorDetails
         d = dict(src_dict)
         code = d.pop("code")
 
@@ -66,16 +74,20 @@ class GetByOrgByRepoCommitsResponse406Error:
 
         _details = d.pop("details", UNSET)
         details: GetByOrgByRepoCommitsResponse406ErrorDetails | Unset
-        if isinstance(_details, Unset):
+        if isinstance(_details,  Unset):
             details = UNSET
         else:
             details = GetByOrgByRepoCommitsResponse406ErrorDetails.from_dict(_details)
+
+
+
 
         get_by_org_by_repo_commits_response_406_error = cls(
             code=code,
             message=message,
             details=details,
         )
+
 
         get_by_org_by_repo_commits_response_406_error.additional_properties = d
         return get_by_org_by_repo_commits_response_406_error

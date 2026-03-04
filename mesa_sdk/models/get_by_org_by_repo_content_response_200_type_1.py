@@ -1,37 +1,51 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import Any, Literal, TypeVar, cast
+from typing import Any, TypeVar, BinaryIO, TextIO, TYPE_CHECKING, Generator
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..types import UNSET, Unset
+
+from typing import Literal, cast
+
+
+
+
+
+
 T = TypeVar("T", bound="GetByOrgByRepoContentResponse200Type1")
+
 
 
 @_attrs_define
 class GetByOrgByRepoContentResponse200Type1:
-    """
-    Attributes:
-        type_ (Literal['symlink']):
-        name (str):
-        path (str):
-        sha (str):
-        size (float):
-        encoding (Literal['base64']):
-        content (str):
-        mode (int):
-    """
+    """ 
+        Attributes:
+            type_ (Literal['symlink']):
+            name (str):
+            path (str):
+            sha (str):
+            size (float):
+            encoding (Literal['base64']):
+            content (str):
+            mode (int):
+     """
 
-    type_: Literal["symlink"]
+    type_: Literal['symlink']
     name: str
     path: str
     sha: str
     size: float
-    encoding: Literal["base64"]
+    encoding: Literal['base64']
     content: str
     mode: int
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
+
+
+
+
 
     def to_dict(self) -> dict[str, Any]:
         type_ = self.type_
@@ -50,28 +64,29 @@ class GetByOrgByRepoContentResponse200Type1:
 
         mode = self.mode
 
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "type": type_,
-                "name": name,
-                "path": path,
-                "sha": sha,
-                "size": size,
-                "encoding": encoding,
-                "content": content,
-                "mode": mode,
-            }
-        )
+        field_dict.update({
+            "type": type_,
+            "name": name,
+            "path": path,
+            "sha": sha,
+            "size": size,
+            "encoding": encoding,
+            "content": content,
+            "mode": mode,
+        })
 
         return field_dict
+
+
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
-        type_ = cast(Literal["symlink"], d.pop("type"))
-        if type_ != "symlink":
+        type_ = cast(Literal['symlink'] , d.pop("type"))
+        if type_ != 'symlink':
             raise ValueError(f"type must match const 'symlink', got '{type_}'")
 
         name = d.pop("name")
@@ -82,8 +97,8 @@ class GetByOrgByRepoContentResponse200Type1:
 
         size = d.pop("size")
 
-        encoding = cast(Literal["base64"], d.pop("encoding"))
-        if encoding != "base64":
+        encoding = cast(Literal['base64'] , d.pop("encoding"))
+        if encoding != 'base64':
             raise ValueError(f"encoding must match const 'base64', got '{encoding}'")
 
         content = d.pop("content")
@@ -100,6 +115,7 @@ class GetByOrgByRepoContentResponse200Type1:
             content=content,
             mode=mode,
         )
+
 
         get_by_org_by_repo_content_response_200_type_1.additional_properties = d
         return get_by_org_by_repo_content_response_200_type_1

@@ -1,37 +1,47 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar
+from typing import Any, TypeVar, BinaryIO, TextIO, TYPE_CHECKING, Generator
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
+from ..types import UNSET, Unset
+from typing import cast
+
 if TYPE_CHECKING:
-    from ..models.post_by_org_by_repo_webhooks_response_400_error_details import (
-        PostByOrgByRepoWebhooksResponse400ErrorDetails,
-    )
+  from ..models.post_by_org_by_repo_webhooks_response_400_error_details import PostByOrgByRepoWebhooksResponse400ErrorDetails
+
+
+
 
 
 T = TypeVar("T", bound="PostByOrgByRepoWebhooksResponse400Error")
 
 
+
 @_attrs_define
 class PostByOrgByRepoWebhooksResponse400Error:
-    """
-    Attributes:
-        code (str):
-        message (str):
-        details (PostByOrgByRepoWebhooksResponse400ErrorDetails | Unset):
-    """
+    """ 
+        Attributes:
+            code (str):
+            message (str):
+            details (PostByOrgByRepoWebhooksResponse400ErrorDetails | Unset):
+     """
 
     code: str
     message: str
     details: PostByOrgByRepoWebhooksResponse400ErrorDetails | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
+
+
+
+
     def to_dict(self) -> dict[str, Any]:
+        from ..models.post_by_org_by_repo_webhooks_response_400_error_details import PostByOrgByRepoWebhooksResponse400ErrorDetails
         code = self.code
 
         message = self.message
@@ -40,25 +50,23 @@ class PostByOrgByRepoWebhooksResponse400Error:
         if not isinstance(self.details, Unset):
             details = self.details.to_dict()
 
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "code": code,
-                "message": message,
-            }
-        )
+        field_dict.update({
+            "code": code,
+            "message": message,
+        })
         if details is not UNSET:
             field_dict["details"] = details
 
         return field_dict
 
+
+
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.post_by_org_by_repo_webhooks_response_400_error_details import (
-            PostByOrgByRepoWebhooksResponse400ErrorDetails,
-        )
-
+        from ..models.post_by_org_by_repo_webhooks_response_400_error_details import PostByOrgByRepoWebhooksResponse400ErrorDetails
         d = dict(src_dict)
         code = d.pop("code")
 
@@ -66,16 +74,20 @@ class PostByOrgByRepoWebhooksResponse400Error:
 
         _details = d.pop("details", UNSET)
         details: PostByOrgByRepoWebhooksResponse400ErrorDetails | Unset
-        if isinstance(_details, Unset):
+        if isinstance(_details,  Unset):
             details = UNSET
         else:
             details = PostByOrgByRepoWebhooksResponse400ErrorDetails.from_dict(_details)
+
+
+
 
         post_by_org_by_repo_webhooks_response_400_error = cls(
             code=code,
             message=message,
             details=details,
         )
+
 
         post_by_org_by_repo_webhooks_response_400_error.additional_properties = d
         return post_by_org_by_repo_webhooks_response_400_error

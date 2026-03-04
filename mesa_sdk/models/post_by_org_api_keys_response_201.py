@@ -1,24 +1,34 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import Any, TypeVar, cast
+from typing import Any, TypeVar, BinaryIO, TextIO, TYPE_CHECKING, Generator
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..types import UNSET, Unset
+
+from typing import cast
+
+
+
+
+
+
 T = TypeVar("T", bound="PostByOrgApiKeysResponse201")
+
 
 
 @_attrs_define
 class PostByOrgApiKeysResponse201:
-    """
-    Attributes:
-        id (str):
-        key (str):
-        name (None | str):
-        scopes (list[str]):
-        created_at (str):
-    """
+    """ 
+        Attributes:
+            id (str):
+            key (str):
+            name (None | str):
+            scopes (list[str]):
+            created_at (str):
+     """
 
     id: str
     key: str
@@ -26,6 +36,10 @@ class PostByOrgApiKeysResponse201:
     scopes: list[str]
     created_at: str
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
+
+
+
+
 
     def to_dict(self) -> dict[str, Any]:
         id = self.id
@@ -37,21 +51,24 @@ class PostByOrgApiKeysResponse201:
 
         scopes = self.scopes
 
+
+
         created_at = self.created_at
+
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "id": id,
-                "key": key,
-                "name": name,
-                "scopes": scopes,
-                "created_at": created_at,
-            }
-        )
+        field_dict.update({
+            "id": id,
+            "key": key,
+            "name": name,
+            "scopes": scopes,
+            "created_at": created_at,
+        })
 
         return field_dict
+
+
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
@@ -67,7 +84,9 @@ class PostByOrgApiKeysResponse201:
 
         name = _parse_name(d.pop("name"))
 
+
         scopes = cast(list[str], d.pop("scopes"))
+
 
         created_at = d.pop("created_at")
 
@@ -78,6 +97,7 @@ class PostByOrgApiKeysResponse201:
             scopes=scopes,
             created_at=created_at,
         )
+
 
         post_by_org_api_keys_response_201.additional_properties = d
         return post_by_org_api_keys_response_201

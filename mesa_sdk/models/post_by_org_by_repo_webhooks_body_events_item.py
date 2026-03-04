@@ -1,6 +1,5 @@
 from enum import Enum
 
-
 class PostByOrgByRepoWebhooksBodyEventsItem(str, Enum):
     PUSH = "push"
 
