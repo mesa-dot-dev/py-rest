@@ -1,26 +1,21 @@
 # mesa-rest
 
-Python REST SDK for the [Mesa](https://mesa.dev) API.
+Python REST SDK for the Mesa API.
 
-Generated from the OpenAPI specification using [openapi-python-client](https://github.com/openapi-generators/openapi-python-client).
+This package is generated from the OpenAPI schema and mirrored to the public `mesa-dot-dev/py-rest` repository.
 
-## Installation
+## Install
 
 ```bash
 pip install mesa-rest
 ```
 
-## Usage
+## Regenerate from OpenAPI
 
-```python
-from mesa_rest import Client
+From the monorepo root:
 
-client = Client(
-    base_url="https://depot.mesa.dev/api/v1",
-    headers={"Authorization": "Bearer YOUR_API_KEY"},
-)
+```bash
+bun run sdk:generate:python
 ```
 
-## License
-
-Apache-2.0
+`sdk:sync:python-rest` remains available as an alias when you want to run the sync step explicitly.

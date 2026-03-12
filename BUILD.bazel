@@ -1,0 +1,9 @@
+load("@aspect_bazel_lib//lib:write_source_files.bzl", "write_source_files")
+
+write_source_files(
+    name = "update_python_rest",
+    files = {
+        "mesa_rest": "//packages/core:sdk_python",
+    },
+    diff_test = False,
+)

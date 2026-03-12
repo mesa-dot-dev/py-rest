@@ -43,8 +43,8 @@ class GetByOrgByRepoCommitsResponse200CommitsItem:
 
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.get_by_org_by_repo_commits_response_200_commits_item_committer import GetByOrgByRepoCommitsResponse200CommitsItemCommitter
         from ..models.get_by_org_by_repo_commits_response_200_commits_item_author import GetByOrgByRepoCommitsResponse200CommitsItemAuthor
+        from ..models.get_by_org_by_repo_commits_response_200_commits_item_committer import GetByOrgByRepoCommitsResponse200CommitsItemCommitter
         sha = self.sha
 
         message = self.message

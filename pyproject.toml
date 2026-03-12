@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mesa-rest"
-version = "0.3.3"
+version = "0.3.5"
 description = "Python REST SDK for the Mesa API"
 readme = "README.md"
 license = "Apache-2.0"
