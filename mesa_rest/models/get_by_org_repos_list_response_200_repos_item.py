@@ -29,7 +29,6 @@ class GetByOrgReposListResponse200ReposItem:
             id (str):
             name (str):
             default_branch (str):
-            size_bytes (float):
             created_at (str):
             metadata (GetByOrgReposListResponse200ReposItemMetadata):
             upstream (GetByOrgReposListResponse200ReposItemUpstreamType0 | None):
@@ -38,7 +37,6 @@ class GetByOrgReposListResponse200ReposItem:
     id: str
     name: str
     default_branch: str
-    size_bytes: float
     created_at: str
     metadata: GetByOrgReposListResponse200ReposItemMetadata
     upstream: GetByOrgReposListResponse200ReposItemUpstreamType0 | None
@@ -49,15 +47,13 @@ class GetByOrgReposListResponse200ReposItem:
 
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.get_by_org_repos_list_response_200_repos_item_metadata import GetByOrgReposListResponse200ReposItemMetadata
         from ..models.get_by_org_repos_list_response_200_repos_item_upstream_type_0 import GetByOrgReposListResponse200ReposItemUpstreamType0
+        from ..models.get_by_org_repos_list_response_200_repos_item_metadata import GetByOrgReposListResponse200ReposItemMetadata
         id = self.id
 
         name = self.name
 
         default_branch = self.default_branch
-
-        size_bytes = self.size_bytes
 
         created_at = self.created_at
 
@@ -76,7 +72,6 @@ class GetByOrgReposListResponse200ReposItem:
             "id": id,
             "name": name,
             "default_branch": default_branch,
-            "size_bytes": size_bytes,
             "created_at": created_at,
             "metadata": metadata,
             "upstream": upstream,
@@ -96,8 +91,6 @@ class GetByOrgReposListResponse200ReposItem:
         name = d.pop("name")
 
         default_branch = d.pop("default_branch")
-
-        size_bytes = d.pop("size_bytes")
 
         created_at = d.pop("created_at")
 
@@ -128,7 +121,6 @@ class GetByOrgReposListResponse200ReposItem:
             id=id,
             name=name,
             default_branch=default_branch,
-            size_bytes=size_bytes,
             created_at=created_at,
             metadata=metadata,
             upstream=upstream,

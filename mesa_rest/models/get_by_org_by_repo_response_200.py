@@ -30,7 +30,6 @@ class GetByOrgByRepoResponse200:
             name (str):
             default_branch (str):
             head_oid (None | str):
-            size_bytes (float):
             created_at (str):
             upstream (GetByOrgByRepoResponse200UpstreamType0 | None): Optionally add an upstream repository. You can
                 configure automatic syncing from the upstream repository.
@@ -41,7 +40,6 @@ class GetByOrgByRepoResponse200:
     name: str
     default_branch: str
     head_oid: None | str
-    size_bytes: float
     created_at: str
     upstream: GetByOrgByRepoResponse200UpstreamType0 | None
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -63,8 +61,6 @@ class GetByOrgByRepoResponse200:
         head_oid: None | str
         head_oid = self.head_oid
 
-        size_bytes = self.size_bytes
-
         created_at = self.created_at
 
         upstream: dict[str, Any] | None
@@ -82,7 +78,6 @@ class GetByOrgByRepoResponse200:
             "name": name,
             "default_branch": default_branch,
             "head_oid": head_oid,
-            "size_bytes": size_bytes,
             "created_at": created_at,
             "upstream": upstream,
         })
@@ -111,8 +106,6 @@ class GetByOrgByRepoResponse200:
         head_oid = _parse_head_oid(d.pop("head_oid"))
 
 
-        size_bytes = d.pop("size_bytes")
-
         created_at = d.pop("created_at")
 
         def _parse_upstream(data: object) -> GetByOrgByRepoResponse200UpstreamType0 | None:
@@ -139,7 +132,6 @@ class GetByOrgByRepoResponse200:
             name=name,
             default_branch=default_branch,
             head_oid=head_oid,
-            size_bytes=size_bytes,
             created_at=created_at,
             upstream=upstream,
         )
