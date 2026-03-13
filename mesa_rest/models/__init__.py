@@ -88,6 +88,29 @@ from .delete_by_org_by_repo_webhooks_by_webhook_id_response_409_error_details im
 from .delete_by_org_by_repo_webhooks_by_webhook_id_response_500 import DeleteByOrgByRepoWebhooksByWebhookIdResponse500
 from .delete_by_org_by_repo_webhooks_by_webhook_id_response_500_error import DeleteByOrgByRepoWebhooksByWebhookIdResponse500Error
 from .delete_by_org_by_repo_webhooks_by_webhook_id_response_500_error_details import DeleteByOrgByRepoWebhooksByWebhookIdResponse500ErrorDetails
+from .delete_by_org_repos_bulk_body import DeleteByOrgReposBulkBody
+from .delete_by_org_repos_bulk_response_200 import DeleteByOrgReposBulkResponse200
+from .delete_by_org_repos_bulk_response_400 import DeleteByOrgReposBulkResponse400
+from .delete_by_org_repos_bulk_response_400_error import DeleteByOrgReposBulkResponse400Error
+from .delete_by_org_repos_bulk_response_400_error_details import DeleteByOrgReposBulkResponse400ErrorDetails
+from .delete_by_org_repos_bulk_response_401 import DeleteByOrgReposBulkResponse401
+from .delete_by_org_repos_bulk_response_401_error import DeleteByOrgReposBulkResponse401Error
+from .delete_by_org_repos_bulk_response_401_error_details import DeleteByOrgReposBulkResponse401ErrorDetails
+from .delete_by_org_repos_bulk_response_403 import DeleteByOrgReposBulkResponse403
+from .delete_by_org_repos_bulk_response_403_error import DeleteByOrgReposBulkResponse403Error
+from .delete_by_org_repos_bulk_response_403_error_details import DeleteByOrgReposBulkResponse403ErrorDetails
+from .delete_by_org_repos_bulk_response_404 import DeleteByOrgReposBulkResponse404
+from .delete_by_org_repos_bulk_response_404_error import DeleteByOrgReposBulkResponse404Error
+from .delete_by_org_repos_bulk_response_404_error_details import DeleteByOrgReposBulkResponse404ErrorDetails
+from .delete_by_org_repos_bulk_response_406 import DeleteByOrgReposBulkResponse406
+from .delete_by_org_repos_bulk_response_406_error import DeleteByOrgReposBulkResponse406Error
+from .delete_by_org_repos_bulk_response_406_error_details import DeleteByOrgReposBulkResponse406ErrorDetails
+from .delete_by_org_repos_bulk_response_409 import DeleteByOrgReposBulkResponse409
+from .delete_by_org_repos_bulk_response_409_error import DeleteByOrgReposBulkResponse409Error
+from .delete_by_org_repos_bulk_response_409_error_details import DeleteByOrgReposBulkResponse409ErrorDetails
+from .delete_by_org_repos_bulk_response_500 import DeleteByOrgReposBulkResponse500
+from .delete_by_org_repos_bulk_response_500_error import DeleteByOrgReposBulkResponse500Error
+from .delete_by_org_repos_bulk_response_500_error_details import DeleteByOrgReposBulkResponse500ErrorDetails
 from .get_by_org_api_keys_response_200 import GetByOrgApiKeysResponse200
 from .get_by_org_api_keys_response_200_api_keys_item import GetByOrgApiKeysResponse200ApiKeysItem
 from .get_by_org_api_keys_response_400 import GetByOrgApiKeysResponse400
@@ -286,6 +309,58 @@ from .get_by_org_by_repo_webhooks_response_409_error_details import GetByOrgByRe
 from .get_by_org_by_repo_webhooks_response_500 import GetByOrgByRepoWebhooksResponse500
 from .get_by_org_by_repo_webhooks_response_500_error import GetByOrgByRepoWebhooksResponse500Error
 from .get_by_org_by_repo_webhooks_response_500_error_details import GetByOrgByRepoWebhooksResponse500ErrorDetails
+from .get_by_org_repos_facets_response_200 import GetByOrgReposFacetsResponse200
+from .get_by_org_repos_facets_response_200_facets import GetByOrgReposFacetsResponse200Facets
+from .get_by_org_repos_facets_response_200_facets_additional_property_item import GetByOrgReposFacetsResponse200FacetsAdditionalPropertyItem
+from .get_by_org_repos_facets_response_400 import GetByOrgReposFacetsResponse400
+from .get_by_org_repos_facets_response_400_error import GetByOrgReposFacetsResponse400Error
+from .get_by_org_repos_facets_response_400_error_details import GetByOrgReposFacetsResponse400ErrorDetails
+from .get_by_org_repos_facets_response_401 import GetByOrgReposFacetsResponse401
+from .get_by_org_repos_facets_response_401_error import GetByOrgReposFacetsResponse401Error
+from .get_by_org_repos_facets_response_401_error_details import GetByOrgReposFacetsResponse401ErrorDetails
+from .get_by_org_repos_facets_response_403 import GetByOrgReposFacetsResponse403
+from .get_by_org_repos_facets_response_403_error import GetByOrgReposFacetsResponse403Error
+from .get_by_org_repos_facets_response_403_error_details import GetByOrgReposFacetsResponse403ErrorDetails
+from .get_by_org_repos_facets_response_404 import GetByOrgReposFacetsResponse404
+from .get_by_org_repos_facets_response_404_error import GetByOrgReposFacetsResponse404Error
+from .get_by_org_repos_facets_response_404_error_details import GetByOrgReposFacetsResponse404ErrorDetails
+from .get_by_org_repos_facets_response_406 import GetByOrgReposFacetsResponse406
+from .get_by_org_repos_facets_response_406_error import GetByOrgReposFacetsResponse406Error
+from .get_by_org_repos_facets_response_406_error_details import GetByOrgReposFacetsResponse406ErrorDetails
+from .get_by_org_repos_facets_response_409 import GetByOrgReposFacetsResponse409
+from .get_by_org_repos_facets_response_409_error import GetByOrgReposFacetsResponse409Error
+from .get_by_org_repos_facets_response_409_error_details import GetByOrgReposFacetsResponse409ErrorDetails
+from .get_by_org_repos_facets_response_500 import GetByOrgReposFacetsResponse500
+from .get_by_org_repos_facets_response_500_error import GetByOrgReposFacetsResponse500Error
+from .get_by_org_repos_facets_response_500_error_details import GetByOrgReposFacetsResponse500ErrorDetails
+from .get_by_org_repos_list_response_200 import GetByOrgReposListResponse200
+from .get_by_org_repos_list_response_200_repos_item import GetByOrgReposListResponse200ReposItem
+from .get_by_org_repos_list_response_200_repos_item_metadata import GetByOrgReposListResponse200ReposItemMetadata
+from .get_by_org_repos_list_response_200_repos_item_upstream_type_0 import GetByOrgReposListResponse200ReposItemUpstreamType0
+from .get_by_org_repos_list_response_200_repos_item_upstream_type_0_status import GetByOrgReposListResponse200ReposItemUpstreamType0Status
+from .get_by_org_repos_list_response_400 import GetByOrgReposListResponse400
+from .get_by_org_repos_list_response_400_error import GetByOrgReposListResponse400Error
+from .get_by_org_repos_list_response_400_error_details import GetByOrgReposListResponse400ErrorDetails
+from .get_by_org_repos_list_response_401 import GetByOrgReposListResponse401
+from .get_by_org_repos_list_response_401_error import GetByOrgReposListResponse401Error
+from .get_by_org_repos_list_response_401_error_details import GetByOrgReposListResponse401ErrorDetails
+from .get_by_org_repos_list_response_403 import GetByOrgReposListResponse403
+from .get_by_org_repos_list_response_403_error import GetByOrgReposListResponse403Error
+from .get_by_org_repos_list_response_403_error_details import GetByOrgReposListResponse403ErrorDetails
+from .get_by_org_repos_list_response_404 import GetByOrgReposListResponse404
+from .get_by_org_repos_list_response_404_error import GetByOrgReposListResponse404Error
+from .get_by_org_repos_list_response_404_error_details import GetByOrgReposListResponse404ErrorDetails
+from .get_by_org_repos_list_response_406 import GetByOrgReposListResponse406
+from .get_by_org_repos_list_response_406_error import GetByOrgReposListResponse406Error
+from .get_by_org_repos_list_response_406_error_details import GetByOrgReposListResponse406ErrorDetails
+from .get_by_org_repos_list_response_409 import GetByOrgReposListResponse409
+from .get_by_org_repos_list_response_409_error import GetByOrgReposListResponse409Error
+from .get_by_org_repos_list_response_409_error_details import GetByOrgReposListResponse409ErrorDetails
+from .get_by_org_repos_list_response_500 import GetByOrgReposListResponse500
+from .get_by_org_repos_list_response_500_error import GetByOrgReposListResponse500Error
+from .get_by_org_repos_list_response_500_error_details import GetByOrgReposListResponse500ErrorDetails
+from .get_by_org_repos_list_sort_by import GetByOrgReposListSortBy
+from .get_by_org_repos_list_sort_order import GetByOrgReposListSortOrder
 from .get_by_org_repos_response_200 import GetByOrgReposResponse200
 from .get_by_org_repos_response_200_repos_item import GetByOrgReposResponse200ReposItem
 from .get_by_org_repos_response_200_repos_item_upstream_type_0 import GetByOrgReposResponse200ReposItemUpstreamType0
@@ -491,6 +566,30 @@ from .post_by_org_repos_body import PostByOrgReposBody
 from .post_by_org_repos_body_upstream import PostByOrgReposBodyUpstream
 from .post_by_org_repos_body_upstream_autosync_type_0 import PostByOrgReposBodyUpstreamAutosyncType0
 from .post_by_org_repos_body_upstream_autosync_type_0_resolution_strategy import PostByOrgReposBodyUpstreamAutosyncType0ResolutionStrategy
+from .post_by_org_repos_bulk_metadata_body import PostByOrgReposBulkMetadataBody
+from .post_by_org_repos_bulk_metadata_body_action import PostByOrgReposBulkMetadataBodyAction
+from .post_by_org_repos_bulk_metadata_response_200 import PostByOrgReposBulkMetadataResponse200
+from .post_by_org_repos_bulk_metadata_response_400 import PostByOrgReposBulkMetadataResponse400
+from .post_by_org_repos_bulk_metadata_response_400_error import PostByOrgReposBulkMetadataResponse400Error
+from .post_by_org_repos_bulk_metadata_response_400_error_details import PostByOrgReposBulkMetadataResponse400ErrorDetails
+from .post_by_org_repos_bulk_metadata_response_401 import PostByOrgReposBulkMetadataResponse401
+from .post_by_org_repos_bulk_metadata_response_401_error import PostByOrgReposBulkMetadataResponse401Error
+from .post_by_org_repos_bulk_metadata_response_401_error_details import PostByOrgReposBulkMetadataResponse401ErrorDetails
+from .post_by_org_repos_bulk_metadata_response_403 import PostByOrgReposBulkMetadataResponse403
+from .post_by_org_repos_bulk_metadata_response_403_error import PostByOrgReposBulkMetadataResponse403Error
+from .post_by_org_repos_bulk_metadata_response_403_error_details import PostByOrgReposBulkMetadataResponse403ErrorDetails
+from .post_by_org_repos_bulk_metadata_response_404 import PostByOrgReposBulkMetadataResponse404
+from .post_by_org_repos_bulk_metadata_response_404_error import PostByOrgReposBulkMetadataResponse404Error
+from .post_by_org_repos_bulk_metadata_response_404_error_details import PostByOrgReposBulkMetadataResponse404ErrorDetails
+from .post_by_org_repos_bulk_metadata_response_406 import PostByOrgReposBulkMetadataResponse406
+from .post_by_org_repos_bulk_metadata_response_406_error import PostByOrgReposBulkMetadataResponse406Error
+from .post_by_org_repos_bulk_metadata_response_406_error_details import PostByOrgReposBulkMetadataResponse406ErrorDetails
+from .post_by_org_repos_bulk_metadata_response_409 import PostByOrgReposBulkMetadataResponse409
+from .post_by_org_repos_bulk_metadata_response_409_error import PostByOrgReposBulkMetadataResponse409Error
+from .post_by_org_repos_bulk_metadata_response_409_error_details import PostByOrgReposBulkMetadataResponse409ErrorDetails
+from .post_by_org_repos_bulk_metadata_response_500 import PostByOrgReposBulkMetadataResponse500
+from .post_by_org_repos_bulk_metadata_response_500_error import PostByOrgReposBulkMetadataResponse500Error
+from .post_by_org_repos_bulk_metadata_response_500_error_details import PostByOrgReposBulkMetadataResponse500ErrorDetails
 from .post_by_org_repos_response_201 import PostByOrgReposResponse201
 from .post_by_org_repos_response_201_upstream_type_0 import PostByOrgReposResponse201UpstreamType0
 from .post_by_org_repos_response_201_upstream_type_0_autosync_type_0 import PostByOrgReposResponse201UpstreamType0AutosyncType0
@@ -606,6 +705,29 @@ __all__ = (
     "DeleteByOrgByRepoWebhooksByWebhookIdResponse500",
     "DeleteByOrgByRepoWebhooksByWebhookIdResponse500Error",
     "DeleteByOrgByRepoWebhooksByWebhookIdResponse500ErrorDetails",
+    "DeleteByOrgReposBulkBody",
+    "DeleteByOrgReposBulkResponse200",
+    "DeleteByOrgReposBulkResponse400",
+    "DeleteByOrgReposBulkResponse400Error",
+    "DeleteByOrgReposBulkResponse400ErrorDetails",
+    "DeleteByOrgReposBulkResponse401",
+    "DeleteByOrgReposBulkResponse401Error",
+    "DeleteByOrgReposBulkResponse401ErrorDetails",
+    "DeleteByOrgReposBulkResponse403",
+    "DeleteByOrgReposBulkResponse403Error",
+    "DeleteByOrgReposBulkResponse403ErrorDetails",
+    "DeleteByOrgReposBulkResponse404",
+    "DeleteByOrgReposBulkResponse404Error",
+    "DeleteByOrgReposBulkResponse404ErrorDetails",
+    "DeleteByOrgReposBulkResponse406",
+    "DeleteByOrgReposBulkResponse406Error",
+    "DeleteByOrgReposBulkResponse406ErrorDetails",
+    "DeleteByOrgReposBulkResponse409",
+    "DeleteByOrgReposBulkResponse409Error",
+    "DeleteByOrgReposBulkResponse409ErrorDetails",
+    "DeleteByOrgReposBulkResponse500",
+    "DeleteByOrgReposBulkResponse500Error",
+    "DeleteByOrgReposBulkResponse500ErrorDetails",
     "GetByOrgApiKeysResponse200",
     "GetByOrgApiKeysResponse200ApiKeysItem",
     "GetByOrgApiKeysResponse400",
@@ -804,6 +926,58 @@ __all__ = (
     "GetByOrgByRepoWebhooksResponse500",
     "GetByOrgByRepoWebhooksResponse500Error",
     "GetByOrgByRepoWebhooksResponse500ErrorDetails",
+    "GetByOrgReposFacetsResponse200",
+    "GetByOrgReposFacetsResponse200Facets",
+    "GetByOrgReposFacetsResponse200FacetsAdditionalPropertyItem",
+    "GetByOrgReposFacetsResponse400",
+    "GetByOrgReposFacetsResponse400Error",
+    "GetByOrgReposFacetsResponse400ErrorDetails",
+    "GetByOrgReposFacetsResponse401",
+    "GetByOrgReposFacetsResponse401Error",
+    "GetByOrgReposFacetsResponse401ErrorDetails",
+    "GetByOrgReposFacetsResponse403",
+    "GetByOrgReposFacetsResponse403Error",
+    "GetByOrgReposFacetsResponse403ErrorDetails",
+    "GetByOrgReposFacetsResponse404",
+    "GetByOrgReposFacetsResponse404Error",
+    "GetByOrgReposFacetsResponse404ErrorDetails",
+    "GetByOrgReposFacetsResponse406",
+    "GetByOrgReposFacetsResponse406Error",
+    "GetByOrgReposFacetsResponse406ErrorDetails",
+    "GetByOrgReposFacetsResponse409",
+    "GetByOrgReposFacetsResponse409Error",
+    "GetByOrgReposFacetsResponse409ErrorDetails",
+    "GetByOrgReposFacetsResponse500",
+    "GetByOrgReposFacetsResponse500Error",
+    "GetByOrgReposFacetsResponse500ErrorDetails",
+    "GetByOrgReposListResponse200",
+    "GetByOrgReposListResponse200ReposItem",
+    "GetByOrgReposListResponse200ReposItemMetadata",
+    "GetByOrgReposListResponse200ReposItemUpstreamType0",
+    "GetByOrgReposListResponse200ReposItemUpstreamType0Status",
+    "GetByOrgReposListResponse400",
+    "GetByOrgReposListResponse400Error",
+    "GetByOrgReposListResponse400ErrorDetails",
+    "GetByOrgReposListResponse401",
+    "GetByOrgReposListResponse401Error",
+    "GetByOrgReposListResponse401ErrorDetails",
+    "GetByOrgReposListResponse403",
+    "GetByOrgReposListResponse403Error",
+    "GetByOrgReposListResponse403ErrorDetails",
+    "GetByOrgReposListResponse404",
+    "GetByOrgReposListResponse404Error",
+    "GetByOrgReposListResponse404ErrorDetails",
+    "GetByOrgReposListResponse406",
+    "GetByOrgReposListResponse406Error",
+    "GetByOrgReposListResponse406ErrorDetails",
+    "GetByOrgReposListResponse409",
+    "GetByOrgReposListResponse409Error",
+    "GetByOrgReposListResponse409ErrorDetails",
+    "GetByOrgReposListResponse500",
+    "GetByOrgReposListResponse500Error",
+    "GetByOrgReposListResponse500ErrorDetails",
+    "GetByOrgReposListSortBy",
+    "GetByOrgReposListSortOrder",
     "GetByOrgReposResponse200",
     "GetByOrgReposResponse200ReposItem",
     "GetByOrgReposResponse200ReposItemUpstreamType0",
@@ -1009,6 +1183,30 @@ __all__ = (
     "PostByOrgReposBodyUpstream",
     "PostByOrgReposBodyUpstreamAutosyncType0",
     "PostByOrgReposBodyUpstreamAutosyncType0ResolutionStrategy",
+    "PostByOrgReposBulkMetadataBody",
+    "PostByOrgReposBulkMetadataBodyAction",
+    "PostByOrgReposBulkMetadataResponse200",
+    "PostByOrgReposBulkMetadataResponse400",
+    "PostByOrgReposBulkMetadataResponse400Error",
+    "PostByOrgReposBulkMetadataResponse400ErrorDetails",
+    "PostByOrgReposBulkMetadataResponse401",
+    "PostByOrgReposBulkMetadataResponse401Error",
+    "PostByOrgReposBulkMetadataResponse401ErrorDetails",
+    "PostByOrgReposBulkMetadataResponse403",
+    "PostByOrgReposBulkMetadataResponse403Error",
+    "PostByOrgReposBulkMetadataResponse403ErrorDetails",
+    "PostByOrgReposBulkMetadataResponse404",
+    "PostByOrgReposBulkMetadataResponse404Error",
+    "PostByOrgReposBulkMetadataResponse404ErrorDetails",
+    "PostByOrgReposBulkMetadataResponse406",
+    "PostByOrgReposBulkMetadataResponse406Error",
+    "PostByOrgReposBulkMetadataResponse406ErrorDetails",
+    "PostByOrgReposBulkMetadataResponse409",
+    "PostByOrgReposBulkMetadataResponse409Error",
+    "PostByOrgReposBulkMetadataResponse409ErrorDetails",
+    "PostByOrgReposBulkMetadataResponse500",
+    "PostByOrgReposBulkMetadataResponse500Error",
+    "PostByOrgReposBulkMetadataResponse500ErrorDetails",
     "PostByOrgReposResponse201",
     "PostByOrgReposResponse201UpstreamType0",
     "PostByOrgReposResponse201UpstreamType0AutosyncType0",
