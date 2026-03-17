@@ -50,10 +50,10 @@ class PostByOrgByRepoCommitBody:
 
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.post_by_org_by_repo_commit_body_author import PostByOrgByRepoCommitBodyAuthor
         from ..models.post_by_org_by_repo_commit_body_files_item_type_1 import PostByOrgByRepoCommitBodyFilesItemType1
         from ..models.post_by_org_by_repo_commit_body_files_item_type_0 import PostByOrgByRepoCommitBodyFilesItemType0
         from ..models.post_by_org_by_repo_commit_body_committer import PostByOrgByRepoCommitBodyCommitter
+        from ..models.post_by_org_by_repo_commit_body_author import PostByOrgByRepoCommitBodyAuthor
         branch = self.branch
 
         message = self.message
